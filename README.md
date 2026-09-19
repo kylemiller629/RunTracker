@@ -2,7 +2,7 @@
 <h1>Kyle Miller's Individual Project</h1>
 <hr>
 <p>This repository will serve my project for Enterprise Java.</p>
-<br>
+
 <body>
 <h3>Problem Statement</h3>
 <br>
