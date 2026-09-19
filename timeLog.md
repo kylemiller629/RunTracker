@@ -18,3 +18,4 @@ Friday - 2 hours debugged exercise and finished exercise challenges
 |------|------|-------|------|
 |------|------|-------|------|
 | 1/19/24| Set up project repository, write problem statement, time log and weekly reflection, target tech| 2 | |
+| 1/19/24| Set up project repository, write problem statement, time log and weekly reflection, target tech| 2 | |
