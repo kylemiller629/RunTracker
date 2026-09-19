@@ -1,8 +1,8 @@
 # Weekly Reflection
 
-### Week 1
+### Week 1 
 
-**Time Spent:**
+**Time Spent:**4 Hours
 
 **Tasks Completed:**
 
