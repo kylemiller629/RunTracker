@@ -22,4 +22,4 @@
 
 ### Sign Up Page
 
-![Sign Up](wireframes/signUp.png)
+![Sign Up](wireframes/signUP.png)
