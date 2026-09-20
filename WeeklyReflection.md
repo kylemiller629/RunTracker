@@ -2,11 +2,12 @@
 
 ### Week 1 
 
-**Time Spent:**4 Hours
+**Time Spent:** 2 Hours
 
-**Tasks Completed:**
+**Tasks Completed:** Set up coding environment
 
 **Reflection:**
+Simple week, just set up coding environment and read syllabus
 
 ### Week 2
 
