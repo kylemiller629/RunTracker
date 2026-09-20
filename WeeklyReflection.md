@@ -13,19 +13,26 @@ Simple week, just set up coding environment and read syllabus
 
 **Time Spent:** 10 Hours
 
-
+**Tasks Completed:** 
+Demos, lectures, and exercises.
 
 **Reflection:**
-Spent a lot of time on challenges but got them done.
+* Finished lectures
+* Chose a running tracker as my project idea
+* Demo
+* Exercise
 
 ### Week 3
 
-**Time Spent:**
+**Time Spent:** 8 
 
 **Tasks Completed:**
-
+* Finished lectures 
+* Demo
+* Exercise (didn't do challenge this week).
 
 **Reflection:**
+Puzzles were a tad bit difficult, learned log statements.
 
 ### Week 4
 
@@ -33,8 +40,6 @@ Spent a lot of time on challenges but got them done.
 
 **Tasks Completed:**
 * Started planning my individual project
-* Chose a running tracker as my project idea
-* Created the project repository
 * Started developing the problem statement
 * Began identifying technologies for the project
 
