@@ -4,7 +4,9 @@
 
 **Time Spent:** 2 Hours
 
-**Tasks Completed:** Set up coding environment
+**Tasks Completed:** 
+* Set up coding environment
+* Lectures & Demos
 
 **Reflection:**
 Simple week, just set up coding environment and read syllabus
@@ -14,29 +16,31 @@ Simple week, just set up coding environment and read syllabus
 **Time Spent:** 10 Hours
 
 **Tasks Completed:** 
-Demos, lectures, and exercises.
+* Demos & Lectures
+* Weekly activities and exercises
+
 
 **Reflection:**
-* Finished lectures
-* Chose a running tracker as my project idea
-* Demo
-* Exercise
+I had a solid understanding on this week's concepts. It was really useful referring back to the advanced java final project to complete the challenges.
 
 ### Week 3
 
-**Time Spent:** 8 
+**Time Spent:** 8 Hours
 
 **Tasks Completed:**
 * Finished lectures 
 * Demo
 * Exercise (didn't do challenge this week).
+* Worked on project checkpoint
+* Created screen designs for the application
+* Created user stories and identified MVP stories
 
 **Reflection:**
-Puzzles were a tad bit difficult, learned log statements.
+The puzzles were a little difficult, but I learned more about using log statements and how they can help with debugging an application.
 
 ### Week 4
 
-**Time Spent:** 
+**Time Spent:** TBD
 
 **Tasks Completed:**
 * Started planning my individual project
