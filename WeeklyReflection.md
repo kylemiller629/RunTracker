@@ -11,11 +11,12 @@ Simple week, just set up coding environment and read syllabus
 
 ### Week 2
 
-**Time Spent:**
+**Time Spent:** 10 Hours
 
 
 
 **Reflection:**
+Spent a lot of time on challenges but got them done.
 
 ### Week 3
 
