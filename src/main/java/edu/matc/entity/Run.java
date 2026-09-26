@@ -11,6 +11,22 @@ import java.time.LocalDate;
 @Table(name = "run")
 public class Run {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @Column(name = "run_date")
+    private LocalDate runDate;
+
+    @Column(name = "distance")
+    private double distance;
+
+    @Column(name = "duration")
+    private int duration;
+
+    @Column(name = "notes")
+    private String notes;
+
     /**
      * No argument constructor
      */
@@ -31,22 +47,6 @@ public class Run {
         this.duration = duration;
         this.notes = notes;
     }
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
-    @Column(name = "run_date")
-    private LocalDate runDate;
-
-    @Column(name = "distance")
-    private double distance;
-
-    @Column(name = "duration")
-    private int duration;
-
-    @Column(name = "notes")
-    private String notes;
 
     /**
      * Getter for run duration
