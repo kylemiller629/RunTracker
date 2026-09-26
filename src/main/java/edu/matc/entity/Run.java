@@ -25,7 +25,7 @@ public class Run {
      * @param duration duration of run
      * @param notes notes about the run
      */
-    public Run(LocalDate runDate, double distance, double duration, String notes) {
+    public Run(LocalDate runDate, double distance, int duration, String notes) {
         this.runDate = runDate;
         this.distance = distance;
         this.duration = duration;
@@ -43,7 +43,7 @@ public class Run {
     private double distance;
 
     @Column(name = "duration")
-    private double duration;
+    private int duration;
 
     @Column(name = "notes")
     private String notes;
