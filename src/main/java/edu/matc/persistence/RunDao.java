@@ -7,6 +7,10 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import java.util.List;
+
 /**
  * Data access class to CRUD runs.
  * @author kmiller
@@ -74,6 +78,22 @@ public class RunDao {
         session.delete(run);
         tx.commit();
         session.close();
+    }
+
+    /**
+     * Returns a list of all runs
+     * @return all runs
+     */
+    public List<Run> getAll() {
+        Session session = sessionFactory.openSession();
+
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<Run> criteriaQuery = builder.createQuery(Run.class);
+        criteriaQuery.from(Run.class);
+
+        List<Run> runs = session.createQuery(criteriaQuery).getResultList();
+        session.close();
+        return runs;
     }
 
 }
