@@ -44,4 +44,22 @@ public class RunDao {
         session.close();
     }
 
+    /**
+     * Insert a run
+     * @param run Run to be inserted
+     * @return id of inserted run
+     */
+    public int insert(Run run) {
+        Session session = sessionFactory.openSession();
+        Transaction tx = session.beginTransaction();
+
+        int id = (int) session.save(run);
+
+        tx.commit();
+        session.close();
+
+        logger.info("insert " + run);
+        return id;
+    }
+
 }
