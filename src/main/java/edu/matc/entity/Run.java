@@ -144,6 +144,8 @@ public class Run {
                 "id=" + id +
                 ", runDate=" + runDate +
                 ", distance=" + distance +
+                ", duration=" + duration +
+                ", notes='" + notes + '\'' +
                 '}';
     }
 }
