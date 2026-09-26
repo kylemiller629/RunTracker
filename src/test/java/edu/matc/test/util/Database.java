@@ -20,7 +20,7 @@ import java.util.Properties;
  * @author Alex M - Fall 2019 - added multi-line sql capability
  */
 
-public class Database {
+public class Database implements PropertiesLoader {
 
     // create an object of the class Database
     private static Database instance = new Database();
