@@ -1,8 +1,11 @@
 package edu.matc.persistence;
 
+import edu.matc.entity.Run;
 import edu.matc.test.util.Database;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -23,8 +26,18 @@ class RunDaoTest {
         database.runSQL("cleanDB.sql");
         runDao = new RunDao();
     }
+
+    /**
+     * Verifies getById successfully retrieves a run
+     */
     @Test
-    void getById() {
+    void getByIdSuccess() {
+        Run retrievedRun = runDao.getById(1);
+
+        assertEquals(LocalDate.of(2026, 9, 20), retrievedRun.getRunDate());
+        assertEquals(5.0, retrievedRun.getDistance());
+        assertEquals(2250, retrievedRun.getDuration());
+        assertEquals("Morning run", retrievedRun.getNotes());
     }
 
     @Test
