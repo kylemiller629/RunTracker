@@ -8,7 +8,7 @@
 
 ### Week 3
 - [ ] Research possible Web Services/APIs to use
-- [] List technologies, versions and how they will be used
+- [ ] List technologies, versions and how they will be used
 - [X] Write project plan
 - [X] Document user stories and select MVP stories
 - [ ] Confirm MVP stories meet Ent Java indie project objectives
