@@ -21,4 +21,27 @@ public class Run {
     @Column(name = "distance")
     private double distance;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public LocalDate getRunDate() {
+        return runDate;
+    }
+
+    public void setRunDate(LocalDate runDate) {
+        this.runDate = runDate;
+    }
+
+    public double getDistance() {
+        return distance;
+    }
+
+    public void setDistance(double distance) {
+        this.distance = distance;
+    }
 }
