@@ -62,4 +62,18 @@ public class RunDao {
         return id;
     }
 
+    /**
+     * Delete a run.
+     *
+     * @param run Run to be deleted
+     */
+    public void delete(Run run) {
+        logger.info("delete " + run);
+        Session session = sessionFactory.openSession();
+        Transaction tx = session.beginTransaction();
+        session.delete(run);
+        tx.commit();
+        session.close();
+    }
+
 }
