@@ -11,6 +11,27 @@ import java.time.LocalDate;
 @Table(name = "run")
 public class Run {
 
+    /**
+     * No argument constructor
+     */
+    public Run() {
+
+    }
+
+    /**
+     * Creates a new run
+     * @param runDate date of run
+     * @param distance distance of run
+     * @param duration duration of run
+     * @param notes notes about the run
+     */
+    public Run(LocalDate runDate, double distance, double duration, String notes) {
+        this.runDate = runDate;
+        this.distance = distance;
+        this.duration = duration;
+        this.notes = notes;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
