@@ -21,11 +21,50 @@ public class Run {
     @Column(name = "distance")
     private double distance;
 
+    @Column(name = "duration")
+    private double duration;
+
+    @Column(name = "notes")
+    private String notes;
+
+    /**
+     * Getter for run duration
+     * @return run duration
+     */
+    public int getDuration() {
+        return duration;
+    }
+
+    /**
+     * Setter for run duration
+     * @param duration duration of run
+     */
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+
+    /**
+     * Getter for notes
+     * @return run notes
+     */
+    public String getNotes() {
+        return notes;
+    }
+
+    /**
+     * Setter for run notes
+     * @param notes run notes
+     */
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
     /**
      * Getter for ID
      * @return id
      */
     public int getId() {
+
         return id;
     }
 
@@ -34,6 +73,7 @@ public class Run {
      * @param id id
      */
     public void setId(int id) {
+
         this.id = id;
     }
 
@@ -42,6 +82,7 @@ public class Run {
      * @return date of run
      */
     public LocalDate getRunDate() {
+
         return runDate;
     }
 
@@ -50,6 +91,7 @@ public class Run {
      * @param runDate date of run
      */
     public void setRunDate(LocalDate runDate) {
+
         this.runDate = runDate;
     }
 
@@ -58,6 +100,7 @@ public class Run {
      * @return run distance
      */
     public double getDistance() {
+
         return distance;
     }
 
@@ -66,6 +109,7 @@ public class Run {
      * @param distance run distance
      */
     public void setDistance(double distance) {
+
         this.distance = distance;
     }
 
