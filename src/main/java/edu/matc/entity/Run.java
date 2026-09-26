@@ -68,4 +68,17 @@ public class Run {
     public void setDistance(double distance) {
         this.distance = distance;
     }
+
+    /**
+     * toString method
+     * @return a string
+     */
+    @Override
+    public String toString() {
+        return "Run{" +
+                "id=" + id +
+                ", runDate=" + runDate +
+                ", distance=" + distance +
+                '}';
+    }
 }
