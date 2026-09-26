@@ -5,6 +5,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
 /**
  * Data access class to CRUD runs.
@@ -27,6 +28,20 @@ public class RunDao {
         Run run = session.get(Run.class, id);
         session.close();
         return run;
+    }
+
+    /**
+     * Update a run.
+     *
+     * @param run Run to be updated
+     */
+    public void saveOrUpdate(Run run) {
+        Session session = sessionFactory.openSession();
+        Transaction tx = session.beginTransaction();
+
+        session.merge(run);
+        tx.commit();
+        session.close();
     }
 
 }
