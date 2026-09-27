@@ -42,4 +42,33 @@ public class UserDao {
         session.close();
     }
 
+    /**
+     * Inserts a user
+     *
+     * @param user user to insert
+     * @return the ner user's id
+     */
+    public int insert(User user) {
+        Session session = sessionFactory.openSession();
+        Transaction tx = session.beginTransaction();
+
+        int id = (int) session.save(user);
+        tx.commit();
+        session.close();
+        return id;
+    }
+
+    /**
+     * Deletes a user
+     *
+     * @param user user to delete
+     */
+    public void delete(User user) {
+        Session session = sessionFactory.openSession();
+        Transaction tx = session.beginTransaction();
+        session.delete(user);
+        tx.commit();
+        session.close();
+    }
+
 }
