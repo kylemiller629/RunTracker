@@ -143,6 +143,10 @@ public class User {
         run.setUser(this);
     }
 
+    /**
+     * Removes a run from the user.
+     * @param run run to remove
+     */
     public void removeRun(Run run) {
         runs.remove(run);
         run.setUser(null);

@@ -27,6 +27,10 @@ public class Run {
     @Column(name = "notes")
     private String notes;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
     /**
      * No argument constructor
      */
@@ -132,6 +136,23 @@ public class Run {
     public void setDistance(double distance) {
 
         this.distance = distance;
+    }
+
+    /**
+     * Getter for user
+     *
+     * @return user
+     */
+    public User getUser() {
+        return user;
+    }
+
+    /**
+     * Setter for user
+     * @param user user
+     */
+    public void setUser(User user) {
+        this.user = user;
     }
 
     /**
