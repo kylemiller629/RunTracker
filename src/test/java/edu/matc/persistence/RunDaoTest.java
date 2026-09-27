@@ -11,12 +11,17 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
+ *Tests the RunDao database
  *
+ * @author kmiller
  */
 class RunDaoTest {
 
     RunDao runDao;
 
+    /**
+     * Resets the db and creates a RunDao before each test
+     */
     @BeforeEach
     void setUp() {
         Database database = Database.getInstance();
@@ -25,7 +30,7 @@ class RunDaoTest {
     }
 
     /**
-     * Verifies id generate is succesfull
+     * Tests the getById method
      */
     @Test
     void getByIdSuccess() {
@@ -36,10 +41,11 @@ class RunDaoTest {
         assertEquals(5.0, retrievedRun.getDistance());
         assertEquals(2250, retrievedRun.getDuration());
         assertEquals("Morning run", retrievedRun.getNotes());
-
-
     }
 
+    /**
+     * Tests updating an existing run
+     */
     @Test
     void updateSuccess() {
         Run updatedRun = runDao.getById(1);
@@ -53,6 +59,9 @@ class RunDaoTest {
         assertEquals(6, retrievedRun.getDistance());
     }
 
+    /**
+     * Tests inserting a new run
+     */
     @Test
     void insertSuccess() {
         Run newRun = new Run(LocalDate.of(2026, 9, 25), 5.0, 2280, "Evening run");
@@ -65,9 +74,11 @@ class RunDaoTest {
         assertEquals(5.0, retrievedRun.getDistance());
         assertEquals(2280, retrievedRun.getDuration());
         assertEquals("Evening run", retrievedRun.getNotes());
-
     }
 
+    /**
+     * Tests deleting an existing run
+     */
     @Test
     void deleteSuccess() {
 
@@ -77,6 +88,9 @@ class RunDaoTest {
         assertNull(retrievedRun);
     }
 
+    /**
+     * Tests retrieving all runs.
+     */
     @Test
     void getAll() {
         List<Run> runs = runDao.getAll();
