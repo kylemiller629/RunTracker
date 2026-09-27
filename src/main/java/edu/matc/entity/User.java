@@ -133,4 +133,18 @@ public class User {
     public void setRuns(List<Run> runs) {
         this.runs = runs;
     }
+
+    /**
+     * Adds a run to the user
+     * @param run run to add
+     */
+    public void addRun(Run run) {
+        runs.add(run);
+        run.setUser(this);
+    }
+
+    public void removeRun(Run run) {
+        runs.remove(run);
+        run.setUser(null);
+    }
 }
