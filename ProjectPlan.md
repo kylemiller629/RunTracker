@@ -21,16 +21,22 @@
 ### Week 4 - Class topic is Hibernate
 #### This week's focus is the Add Run and View Runs user stories
 
-- [ ] Create first database design
-- [ ] Create development version of the database
-- [ ] Create Run entity
-- [ ] Create DAO for Run
-- [ ] Implement CRUD operations in Run DAO
-- [ ] Create database configuration files for development and testing
-- [ ] Create test database for unit testing
-- [ ] Create unit tests for Run DAO
-- [ ] Create JSP for adding a run
-- [ ] Create JSP for viewing runs
+- [X] Create first database design
+- [X] Create development version of the database
+- [X] Create Run entity
+- [X] Create DAO for Run
+- [X] Implement CRUD operations in Run DAO
+- [X] Create database configuration files for development and testing
+- [X] Create test database for unit testing
+- [X] Create unit tests for Run DAO
+- [X] Update weekly reflection
+
+### Week 5 - Class 
+#### This week's focus is on the User side and connect it to run
+
+- [ ] Create UserDao
+- [ ] Create User DB
+- [ ] Run Tests for both Run and User
+- [ ] Start/Finish JSPs
 - [ ] Create controller for adding a run
 - [ ] Create controller for viewing runs
-- [ ] Update weekly reflection
