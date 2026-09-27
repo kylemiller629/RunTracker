@@ -29,4 +29,17 @@ public class UserDao {
         return user;
     }
 
+    /**
+     * Saves or updates a user
+     *
+     * @param user user to save or update
+     */
+    public void saveOrUpdate(User user) {
+        Session session = sessionFactory.openSession();
+        Transaction tx = session.beginTransaction();
+        session.merge(user);
+        tx.commit();
+        session.close();
+    }
+
 }
