@@ -27,7 +27,7 @@ class RunDaoTest {
      * Verifies id generate is succesfull
      */
     @Test
-    void getById() {
+    void getByIdSuccess() {
 
         Run retrievedRun = runDao.getById(1);
 
@@ -40,7 +40,16 @@ class RunDaoTest {
     }
 
     @Test
-    void saveOrUpdate() {
+    void updateSuccess() {
+        Run updatedRun = runDao.getById(1);
+
+        updatedRun.setDistance(6.0);
+
+        runDao.saveOrUpdate(updatedRun);
+
+        Run retrievedRun = runDao.getById(1);
+
+        assertEquals(6, retrievedRun.getDistance());
     }
 
     @Test
