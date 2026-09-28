@@ -57,7 +57,11 @@ class UserDaoTest {
     }
 
     @Test
-    void delete() {
+    void deleteSuccess() {
+        User userToDelete = userDao.getById(2);
+        userDao.delete(userToDelete);
+        User retrievedUser = userDao.getById(2);
+        assertNull(retrievedUser);
     }
 
     @Test
