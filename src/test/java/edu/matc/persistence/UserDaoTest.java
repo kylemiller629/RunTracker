@@ -1,5 +1,6 @@
 package edu.matc.persistence;
 
+import edu.matc.entity.User;
 import edu.matc.test.util.Database;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -21,7 +22,12 @@ class UserDaoTest {
     }
 
     @Test
-    void getById() {
+    void getByIdSuccess() {
+        User user = userDao.getById(1);
+
+        assertEquals("Kyle", user.getFirstName());
+        assertEquals("Miller", user.getLastName());
+        assertEquals("kmiller", user.getUserName());
     }
 
     @Test
