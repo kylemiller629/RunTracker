@@ -37,7 +37,15 @@ class UserDaoTest {
     }
 
     @Test
-    void insert() {
+    void insertSuccess() {
+        User newUser = new User("Bob", "Miller", "bmiller");
+
+        int id =  userDao.insert(newUser);
+
+        User retrievedUser = userDao.getById(id);
+        assertEquals("Bob", retrievedUser.getFirstName());
+        assertEquals("Miller", retrievedUser.getLastName());
+        assertEquals("bmiller", retrievedUser.getUserName());
     }
 
     @Test
