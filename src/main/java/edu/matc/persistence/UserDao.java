@@ -1,6 +1,7 @@
 package edu.matc.persistence;
 
 import edu.matc.entity.User;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Expression;
 import jakarta.persistence.criteria.Root;
@@ -10,6 +11,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.criteria.HibernateCriteriaBuilder;
+
+import java.util.List;
 
 public class UserDao {
 
@@ -69,6 +72,21 @@ public class UserDao {
         session.delete(user);
         tx.commit();
         session.close();
+    }
+
+    /**
+     * Gets all users.
+     *
+     * @return list of users
+     */
+    public List<User> getAll() {
+        Session session = sessionFactory.openSession();
+        CriteriaBuilder cb = sessionFactory.getCriteriaBuilder();
+        CriteriaQuery<User> cq = cb.createQuery(User.class);
+
+        List<User> users = session.createQuery(cq).getResultList();
+        session.close();
+        return users;
     }
 
 }
