@@ -84,6 +84,8 @@ public class UserDao {
         CriteriaBuilder cb = sessionFactory.getCriteriaBuilder();
         CriteriaQuery<User> cq = cb.createQuery(User.class);
 
+        cq.from(User.class);
+
         List<User> users = session.createQuery(cq).getResultList();
         session.close();
         return users;
