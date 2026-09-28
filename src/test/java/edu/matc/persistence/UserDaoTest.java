@@ -33,7 +33,15 @@ class UserDaoTest {
     }
 
     @Test
-    void saveOrUpdate() {
+    void updateSucess() {
+        User userToUpdate = userDao.getById(1);
+
+        userToUpdate.setUserName("newName");
+
+        userDao.saveOrUpdate(userToUpdate);
+
+        User updatedUser = userDao.getById(1);
+        assertEquals("newName", updatedUser.getUserName());
     }
 
     @Test
