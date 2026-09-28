@@ -5,6 +5,8 @@ import edu.matc.test.util.Database;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class UserDaoTest {
@@ -43,6 +45,16 @@ class UserDaoTest {
     }
 
     @Test
-    void getAll() {
+    void getAllSuccess() {
+        List<User> user = userDao.getAll();
+
+        assertEquals(2, user.size());
     }
+
+    @Test
+    void getRunsSuccess() {
+        User user = userDao.getById(1);
+        assertEquals(2, user.getRuns().size());
+    }
+
 }

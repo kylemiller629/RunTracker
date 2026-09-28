@@ -59,6 +59,7 @@ public class User {
      * @return user's ID
      */
     public int getId() {
+
         return id;
     }
 
@@ -67,6 +68,7 @@ public class User {
      * @param id user id
      */
     public void setId(int id) {
+
         this.id = id;
     }
 
@@ -75,6 +77,7 @@ public class User {
      * @return first name
      */
     public String getFirstName() {
+
         return firstName;
     }
 
@@ -83,6 +86,7 @@ public class User {
      * @param firstName first name
      */
     public void setFirstName(String firstName) {
+
         this.firstName = firstName;
     }
 
@@ -91,6 +95,7 @@ public class User {
      * @return user's last name
      */
     public String getLastName() {
+
         return lastName;
     }
 
@@ -99,6 +104,7 @@ public class User {
      * @param lastName last name
      */
     public void setLastName(String lastName) {
+
         this.lastName = lastName;
     }
 
@@ -107,6 +113,7 @@ public class User {
      * @return user's username
      */
     public String getUserName() {
+
         return userName;
     }
 
@@ -115,6 +122,7 @@ public class User {
      * @param userName username
      */
     public void setUserName(String userName) {
+
         this.userName = userName;
     }
 
@@ -123,6 +131,7 @@ public class User {
      * @return runs
      */
     public List<Run> getRuns() {
+
         return runs;
     }
 
@@ -131,6 +140,7 @@ public class User {
      * @param runs runs
      */
     public void setRuns(List<Run> runs) {
+
         this.runs = runs;
     }
 
