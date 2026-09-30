@@ -1,5 +1,6 @@
 package edu.matc.persistence;
 
+import edu.matc.entity.Run;
 import edu.matc.entity.User;
 import edu.matc.test.util.Database;
 import org.junit.jupiter.api.BeforeEach;
@@ -76,6 +77,25 @@ class UserDaoTest {
     void getRunsSuccess() {
         User user = userDao.getById(1);
         assertEquals(2, user.getRuns().size());
+    }
+
+    @Test
+    void deleteWithRuns() {
+        User userToDelete = userDao.getById(1);
+
+        List<Run> runs = userToDelete.getRuns();
+
+        int runId1 = runs.get(0).getId();
+        int runId2 = runs.get(1).getId();
+
+        userDao.delete(userToDelete);
+
+        assertNull(userDao.getById(1));
+
+        RunDao runDao = new RunDao();
+
+        assertNull(runDao.getById(runId1));
+        assertNull(runDao.getById(runId2));
     }
 
 }
