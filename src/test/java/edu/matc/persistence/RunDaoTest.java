@@ -56,7 +56,7 @@ class RunDaoTest {
 
         Run retrievedRun = runDao.getById(1);
 
-        assertEquals(6, retrievedRun.getDistance());
+        assertEquals(updatedRun, retrievedRun);
     }
 
     /**
@@ -87,6 +87,7 @@ class RunDaoTest {
         Run retrievedRun = runDao.getById(1);
         assertNull(retrievedRun);
     }
+
 
     /**
      * Tests retrieving all runs.
