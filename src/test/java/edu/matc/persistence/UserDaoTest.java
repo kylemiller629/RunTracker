@@ -35,7 +35,7 @@ class UserDaoTest {
     }
 
     @Test
-    void updateSucess() {
+    void updateSuccess() {
         User userToUpdate = userDao.getById(1);
 
         userToUpdate.setUserName("newName");
@@ -54,9 +54,8 @@ class UserDaoTest {
         int id =  userDao.insert(newUser);
 
         User retrievedUser = userDao.getById(id);
-        assertEquals("Bob", retrievedUser.getFirstName());
-        assertEquals("Miller", retrievedUser.getLastName());
-        assertEquals("bmiller", retrievedUser.getUserName());
+        assertEquals(newUser, retrievedUser);
+
     }
 
     @Test
