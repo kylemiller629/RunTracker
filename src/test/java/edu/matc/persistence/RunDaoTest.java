@@ -70,10 +70,7 @@ class RunDaoTest {
 
         Run retrievedRun = runDao.getById(id);
 
-        assertEquals(LocalDate.of(2026, 9, 25), retrievedRun.getRunDate());
-        assertEquals(5.0, retrievedRun.getDistance());
-        assertEquals(2280, retrievedRun.getDuration());
-        assertEquals("Evening run", retrievedRun.getNotes());
+        assertEquals(newRun, retrievedRun);
     }
 
     /**
