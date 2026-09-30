@@ -6,6 +6,7 @@ import edu.matc.test.util.Database;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -97,5 +98,18 @@ class UserDaoTest {
         assertNull(runDao.getById(runId1));
         assertNull(runDao.getById(runId2));
     }
+
+    @Test
+    void insertWithRuns() {
+        User newUser = new User("Kyle", "Miller", "bmiller");
+
+        Run run1 = new Run(LocalDate.of(2026, 9,28), 3.1, 1440, "Easy Run");
+
+        Run run2 = new Run(LocalDate.of(2026, 9,29), 5.0, 2250, "Morning Run");
+
+        newUser.addRun(run1);
+        newUser.addRun(run2);
+    }
+
 
 }
