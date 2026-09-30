@@ -41,7 +41,8 @@ class UserDaoTest {
         userDao.saveOrUpdate(userToUpdate);
 
         User updatedUser = userDao.getById(1);
-        assertEquals("newName", updatedUser.getUserName());
+
+        assertEquals(userToUpdate, updatedUser);
     }
 
     @Test
