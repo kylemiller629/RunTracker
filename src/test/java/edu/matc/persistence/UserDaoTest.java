@@ -109,6 +109,12 @@ class UserDaoTest {
 
         newUser.addRun(run1);
         newUser.addRun(run2);
+
+        int id = userDao.insert(newUser);
+
+        User retrievedUser = userDao.getById(id);
+
+        assertEquals(2, retrievedUser.getRuns().size());
     }
 
 
