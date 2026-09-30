@@ -2,6 +2,7 @@ package edu.matc.entity;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
+import java.util.Objects;
 
 /**
  * Represents a run logged by a user
@@ -168,5 +169,24 @@ public class Run {
                 ", duration=" + duration +
                 ", notes='" + notes + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Run run = (Run) o;
+
+        return id == run.id
+                && Double.compare(run.distance, distance) == 0
+                && duration == run.duration
+                && Objects.equals(runDate, run.runDate)
+                && Objects.equals(notes, run.notes);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, runDate, distance, duration, notes);
     }
 }
