@@ -14,6 +14,11 @@ import org.hibernate.query.criteria.HibernateCriteriaBuilder;
 
 import java.util.List;
 
+/**
+ * Provides database access methods for User entities
+ *
+ * @author kmiller
+ */
 public class UserDao {
 
 
@@ -49,7 +54,7 @@ public class UserDao {
      * Inserts a user
      *
      * @param user user to insert
-     * @return the ner user's id
+     * @return the new user's id
      */
     public int insert(User user) {
         Session session = sessionFactory.openSession();

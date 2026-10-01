@@ -171,6 +171,12 @@ public class Run {
                 '}';
     }
 
+    /**
+     * Compares this run to another object for equality.
+     *
+     * @param o object to compare
+     * @return true if the objects are equal
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -185,8 +191,14 @@ public class Run {
                 && Objects.equals(notes, run.notes);
     }
 
+    /**
+     * Generates a hash code for the run.
+     *
+     * @return hash code for the run
+     */
     @Override
     public int hashCode() {
+
         return Objects.hash(id, runDate, distance, duration, notes);
     }
 }

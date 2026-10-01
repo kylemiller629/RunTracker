@@ -163,6 +163,12 @@ public class User {
         run.setUser(null);
     }
 
+    /**
+     * Compares this user to another object for equality.
+     *
+     * @param o object to compare
+     * @return true if the objects are equal
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -177,8 +183,14 @@ public class User {
 
     }
 
+    /**
+     * Generates a hash code for the user.
+     *
+     * @return hash code for the user
+     */
     @Override
     public int hashCode() {
+
         return Objects.hash(id, firstName, lastName, userName);
     }
 }
