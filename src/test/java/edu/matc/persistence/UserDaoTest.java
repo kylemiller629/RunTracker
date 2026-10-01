@@ -10,13 +10,17 @@ import java.time.LocalDate;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+/**
+ *Tests the UserDao database
+ *
+ * @author kmiller
+ */
 class UserDaoTest {
 
     UserDao userDao;
 
     /**
-     *
+     *Resets the db and creates a UserDao before each test.
      */
     @BeforeEach
     void setUp() {
@@ -25,6 +29,9 @@ class UserDaoTest {
         userDao = new UserDao();
     }
 
+    /**
+     * Tests retrieving a user by id
+     */
     @Test
     void getByIdSuccess() {
         User user = userDao.getById(1);
@@ -34,6 +41,9 @@ class UserDaoTest {
         assertEquals("kmiller", user.getUserName());
     }
 
+    /**
+     * Tests updating an existing user
+     */
     @Test
     void updateSuccess() {
         User userToUpdate = userDao.getById(1);
@@ -47,6 +57,9 @@ class UserDaoTest {
         assertEquals(userToUpdate, updatedUser);
     }
 
+    /**
+     * Tests inserting a new user
+     */
     @Test
     void insertSuccess() {
         User newUser = new User("Bob", "Miller", "bmiller");
@@ -58,6 +71,9 @@ class UserDaoTest {
 
     }
 
+    /**
+     * Tests deleting a user
+     */
     @Test
     void deleteSuccess() {
         User userToDelete = userDao.getById(2);
@@ -66,6 +82,9 @@ class UserDaoTest {
         assertNull(retrievedUser);
     }
 
+    /**
+     * Tests getting all users
+     */
     @Test
     void getAllSuccess() {
         List<User> user = userDao.getAll();
@@ -73,12 +92,18 @@ class UserDaoTest {
         assertEquals(2, user.size());
     }
 
+    /**
+     * Tests retriving the runs associated with a user
+     */
     @Test
     void getRunsSuccess() {
         User user = userDao.getById(1);
         assertEquals(2, user.getRuns().size());
     }
 
+    /**
+     * Tests deleting a user and their associated runs
+     */
     @Test
     void deleteWithRuns() {
         User userToDelete = userDao.getById(1);
@@ -98,6 +123,9 @@ class UserDaoTest {
         assertNull(runDao.getById(runId2));
     }
 
+    /**
+     * Tests inserting a user with associated runs.
+     */
     @Test
     void insertWithRuns() {
         User newUser = new User("Kyle", "Miller", "bmiller");
