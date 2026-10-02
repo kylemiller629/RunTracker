@@ -18,6 +18,7 @@
 
         <mapping class="edu.matc.entity.Run"></mapping>
         <mapping class="edu.matc.entity.User"></mapping>
+        <mapping class="edu.matc.entity.Goal"></mapping>
 
 
     </session-factory>
