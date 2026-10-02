@@ -36,6 +36,14 @@ public class User {
     )
     private List<Run> runs = new ArrayList<>();
 
+    @OneToMany(
+            mappedBy = "user",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            fetch = FetchType.EAGER
+    )
+    private List<Goal> goals = new ArrayList<>();
+
     /**
      * No argument constructor
      */
