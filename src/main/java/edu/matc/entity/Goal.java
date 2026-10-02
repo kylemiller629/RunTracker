@@ -113,14 +113,14 @@ public class Goal {
 
         return id == goal.id
                 && Double.compare(goal.target, target) == 0
-                && startDate.equals(goal.startDate)
-                && endDate.equals(goal.endDate)
-                && goalType.equals(goal.goalType);
+                && Objects.equals(goalType, goal.goalType)
+                && Objects.equals(startDate, goal.startDate)
+                && Objects.equals(endDate, goal.endDate);
     }
 
     /**
-     *
-     * @return
+     * Generates a hash code for the goal
+     * @return hash code
      */
     @Override
     public int hashCode() {
