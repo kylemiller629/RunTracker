@@ -22,4 +22,8 @@ public class Goal {
 
     @Column(name = "end_date")
     private LocalDate endDate;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }
