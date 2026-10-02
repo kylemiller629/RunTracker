@@ -172,6 +172,38 @@ public class User {
     }
 
     /**
+     * Gets the user's goals
+     * @return the goals
+     */
+    public List<Goal> getGoals() {
+        return goals;
+    }
+
+    /**
+     * Sets the user's goals
+     * @param goals the goals
+     */
+    public void setGoals(List<Goal> goals) {
+        this.goals = goals;
+    }
+
+    /**
+     * Adds a goal to the user
+     * @param goal goal to add
+     */
+    public void addGoal(Goal goal) {
+        goals.add(goal);
+    }
+
+    /**
+     * removes a goal from the user
+     * @param goal goal to remove
+     */
+    public void removeGoal(Goal goal) {
+        goals.remove(goal);
+    }
+
+    /**
      * Compares this user to another object for equality.
      *
      * @param o object to compare
