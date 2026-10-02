@@ -3,6 +3,8 @@ package edu.matc.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.Objects;
+
 @Entity
 @Table(name = "goal")
 public class Goal {
@@ -36,20 +38,17 @@ public class Goal {
 
     /**
      * Creates a new goal for a user
-     * @param id goal id
      * @param goalType goal type
      * @param target target goal
      * @param startDate start date
      * @param endDate end date
-     * @param user user
      */
-    public Goal(int id, String goalType, double target, LocalDate startDate, LocalDate endDate, User user) {
-        this.id = id;
+    public Goal(String goalType, double target, LocalDate startDate, LocalDate endDate) {
+
         this.goalType = goalType;
         this.target = target;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.user = user;
     }
 
     public int getId() {
@@ -98,5 +97,33 @@ public class Goal {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    /**
+     * Compares this goal to another object
+     * @param o object to compare
+     * @return true if the objects are equal
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Goal goal = (Goal) o;
+
+        return id == goal.id
+                && Double.compare(goal.target, target) == 0
+                && startDate.equals(goal.startDate)
+                && endDate.equals(goal.endDate)
+                && goalType.equals(goal.goalType);
+    }
+
+    /**
+     *
+     * @return
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, goalType, target, startDate, endDate);
     }
 }
