@@ -21,7 +21,7 @@ public class GoalDao {
      * @param id goal id
      * @return goal
      */
-    public Goal getGoalById(int id) {
+    public Goal getById(int id) {
         Session session = sessionFactory.openSession();
         Goal goal = (Goal) session.get(Goal.class, id);
         session.close();
@@ -50,7 +50,7 @@ public class GoalDao {
         Session session = sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
 
-        int id = (Integer) session.save(goal);
+        int id = (int) session.save(goal);
 
         tx.commit();
         session.close();
@@ -64,20 +64,20 @@ public class GoalDao {
      * @param goal goal to delete
      */
     public void delete(Goal goal) {
-        logger.info("Goal " + goal.getId() + " has been deleted successfully");
         Session session = sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
         session.delete(goal);
         tx.commit();
         session.close();
+        logger.info("Goal " + goal.getId() + " has been deleted successfully");
     }
 
     /**
      * Gets all goals from the db
      * @return list of goals
      */
-    public List<Goal> getAllGoals() {
-        logger.info("Goal DAO has been initialized");
+    public List<Goal> getAll() {
+        logger.info("Getting all goals");
         Session session = sessionFactory.openSession();
 
         CriteriaBuilder builder = session.getCriteriaBuilder();
