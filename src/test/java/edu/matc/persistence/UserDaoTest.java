@@ -1,5 +1,6 @@
 package edu.matc.persistence;
 
+import edu.matc.entity.Goal;
 import edu.matc.entity.Run;
 import edu.matc.entity.User;
 import edu.matc.test.util.Database;
@@ -142,6 +143,35 @@ class UserDaoTest {
         User retrievedUser = userDao.getById(id);
 
         assertEquals(2, retrievedUser.getRuns().size());
+    }
+
+    /**
+     * Tests getting a users goal
+     */
+    @Test
+    void getGoalsSuccess() {
+        User user = userDao.getById(1);
+        assertEquals(2, user.getGoals().size());
+    }
+
+    /**
+     *
+     */
+    @Test
+    void insertWithGoals() {
+        User newUser = new User("Blake", "Miller", "blakemiller");
+
+        Goal goal1 = new Goal("Weekly Distance", 30.00, LocalDate.of(2026, 10,5), LocalDate.of(2026, 10,11));
+
+        Goal goal2 = new Goal("Monly Distance", 120.0, LocalDate.of(2026, 10,1), LocalDate.of(2026, 10,31));
+
+        newUser.addGoal(goal1);
+        newUser.addGoal(goal2);
+
+        int id = userDao.insert(newUser);
+
+        User retrievedUser = userDao.getById(id);
+        assertEquals(2, retrievedUser.getGoals().size());
     }
 
 

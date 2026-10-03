@@ -193,6 +193,7 @@ public class User {
      */
     public void addGoal(Goal goal) {
         goals.add(goal);
+        goal.setUser(this);
     }
 
     /**
@@ -201,6 +202,7 @@ public class User {
      */
     public void removeGoal(Goal goal) {
         goals.remove(goal);
+        goal.setUser(null);
     }
 
     /**
