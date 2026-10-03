@@ -36,5 +36,7 @@ public class AddRun extends HttpServlet {
 
         RunDao runDao = new RunDao();
         runDao.insert(run);
+
+        response.sendRedirect("viewRuns");
     }
 }
