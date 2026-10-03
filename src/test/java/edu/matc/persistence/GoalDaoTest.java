@@ -9,7 +9,11 @@ import java.time.LocalDate;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+/**
+ *Tests the GoalDao database
+ *
+ * @author kmiller
+ */
 class GoalDaoTest {
 
     GoalDao goalDao;
