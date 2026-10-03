@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -66,11 +67,24 @@ class GoalDaoTest {
         assertEquals(newGoal, retrievedGoal);
     }
 
+    /**
+     * Tests deleting a goal
+     */
     @Test
     void delete() {
+        Goal goalToDelete = goalDao.getById(1);
+        goalDao.delete(goalToDelete);
+        Goal retrievedGoal = goalDao.getById(1);
+        assertNull(retrievedGoal);
     }
 
+    /**
+     * Tests getting all goals
+     */
     @Test
     void getAll() {
+        List<Goal> retrievedGoals = goalDao.getAll();
+
+        assertEquals(3, retrievedGoals.size());
     }
 }
