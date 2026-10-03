@@ -36,12 +36,34 @@ class GoalDaoTest {
         assertEquals(LocalDate.of(2026, 9, 27), retrievedGoal.getEndDate());
     }
 
+    /**
+     * Tests updating a goal
+     */
     @Test
-    void saveOrUpdate() {
+    void updateSuccess() {
+        Goal goalToUpdate = goalDao.getById(1);
+
+        goalToUpdate.setTarget(30.0);
+
+        goalDao.saveOrUpdate(goalToUpdate);
+
+        Goal retrievedGoal = goalDao.getById(1);
+
+        assertEquals(goalToUpdate, retrievedGoal);
     }
 
+    /**
+     * Tests inserting a new goal
+     */
     @Test
-    void insert() {
+    void insertSuccess() {
+        Goal newGoal = new Goal("Weekly Distance", 40.0, LocalDate.of(2026, 10, 5), LocalDate.of(2026, 10, 11));
+
+        int id = goalDao.insert(newGoal);
+
+        Goal retrievedGoal = goalDao.getById(id);
+
+        assertEquals(newGoal, retrievedGoal);
     }
 
     @Test
