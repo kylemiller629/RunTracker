@@ -155,7 +155,7 @@ class UserDaoTest {
     }
 
     /**
-     *
+     *Tests inserting a user with goals
      */
     @Test
     void insertWithGoals() {
@@ -172,6 +172,28 @@ class UserDaoTest {
 
         User retrievedUser = userDao.getById(id);
         assertEquals(2, retrievedUser.getGoals().size());
+    }
+
+    /**
+     * Tests deleting a user with goals
+     */
+    @Test
+    void deleteWithGoals() {
+        User userToDelete = userDao.getById(1);
+
+        List<Goal> goals = userToDelete.getGoals();
+
+        int goalId1 = goals.get(0).getId();
+        int goalId2 = goals.get(1).getId();
+
+        userDao.delete(userToDelete);
+
+        assertNull(userDao.getById(1));
+
+        GoalDao goalDao = new GoalDao();
+
+        assertNull(goalDao.getById(goalId1));
+        assertNull(goalDao.getById(goalId2));
     }
 
 
