@@ -85,6 +85,25 @@ class RunDaoTest {
         assertNull(retrievedRun);
     }
 
+    /**
+     * Tests that deleting a run DOESN'T delete a user
+     *
+     */
+    @Test
+    void deleteRunDoesNotDeleteUser() {
+        Run runToDelete = runDao.getById(1);
+
+        int userId = runToDelete.getUser().getId();
+
+        runDao.delete(runToDelete);
+
+        assertNull(runDao.getById(1));
+
+        UserDao userDao = new UserDao();
+
+        assertNotNull(userDao.getById(1));
+    }
+
 
     /**
      * Tests retrieving all runs.

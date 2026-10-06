@@ -1,13 +1,16 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>MileMarker</title>
 </head>
 <body>
-    <h2>MileMarker</h2>
 
-    <p>Track your miles! Reach your goals!</p>
+    <c:import url="header.jsp" />
 
-    <a href="addRun.jsp">Add Run</a>
-    <a href="viewRuns.jsp"></a>
+    <main>
+        <h2>Welcome to MileMarker</h2>
+        <p>Track your miles! Reach your goals!</p>
+    </main>
+
 </body>
 </html>
