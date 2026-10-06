@@ -12,6 +12,10 @@ As a new user, I want to create an account so that I can save and manage my runn
 
 As a registered user, I want to sign in so that I can access my saved runs and running information.
 
+#### Reset Password *
+
+As a registered user, I want to reset my password so that I can regain access to my account if I forget my password.
+
 
 ### Run Management
 
@@ -35,6 +39,21 @@ As a registered user, I want to edit a run so that I can correct or update infor
 
 As a registered user, I want to delete a run so that I can remove an incorrect or unwanted entry.
 
+#### Search Runs *
+
+As a registered user, I want to search my runs so that I can quickly find a specific run.
+
+
+### Running Goals
+
+#### Create Running Goal *
+
+As a registered user, I want to create a running goal so that I can work toward a specific mileage or distance target.
+
+#### View Goal Progress *
+
+As a registered user, I want to view my progress toward a running goal so that I can see how close I am to completing it.
+
 
 ### Running Statistics
 
@@ -47,20 +66,16 @@ As a registered user, I want the application to calculate my pace for a run so t
 As a registered user, I want to view a summary of my running activity so that I can see information such as my total runs and total distance.
 
 
+### Weather
+
+#### View Weather for a Run *
+
+As a registered user, I want to view weather information for a run so that I can see the conditions in which I ran.
+
+
 ---
 
 ## Non-MVP User Stories
-
-### Running Goals
-
-#### Create Running Goal
-
-As a registered user, I want to create a running goal so that I can work toward a specific mileage or distance target.
-
-#### View Goal Progress
-
-As a registered user, I want to view my progress toward a running goal so that I can see how close I am to completing it.
-
 
 ### Running Statistics
 
@@ -71,13 +86,6 @@ As a registered user, I want to view my personal records so that I can see my be
 #### Filter Run History
 
 As a registered user, I want to filter my running history so that I can find runs from a specific date or distance.
-
-
-### Weather
-
-#### View Weather for a Run
-
-As a registered user, I want to view weather information for a run so that I can see the conditions in which I ran.
 
 
 ### General
