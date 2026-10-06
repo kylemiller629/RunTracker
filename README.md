@@ -2,35 +2,35 @@
 
 ### Problem Statement
 
-There are many different apps available for runners to track their workouts, but they can often include more features and information than a runner actually needs. For someone who wants to simply keep track of their runs and progress over time, it can be difficult to quickly see the information that matters most, such as distance, time, pace, and previous runs.
+MileMarker is a running tracker that gives runners a simple and organized way to record their runs and track their progress over time. Many running applications include more features and information than a runner may need, making it difficult to quickly find important information such as distance, time, pace, previous runs, and progress toward goals.
 
-For my individual project, I would like to build a running tracker that gives runners a simple way to record and view their running activity. Users will be able to log runs including information such as the date, distance, and time, while the application calculates useful information such as pace. Users will also be able to view their previous runs and see a summary of their running activity.
+MileMarker allows users to log runs including the date, distance, duration, and notes. The application stores previous runs and allows users to view their running history while providing useful information such as pace and running statistics. Users can also create running goals and track their progress toward those goals.
 
-The goal of this project is to create a simple and organized place for runners to track their progress without unnecessary features getting in the way. As the project develops, I would also like to explore additional features such as running goals, personal records, and incorporating weather data for recorded runs.
-
+MileMarker focuses on providing runners with the information they need without unnecessary features getting in the way. The application also incorporates weather data to provide additional information about running conditions.
 
 ### Project Technologies/Techniques
 
 * Security/Authentication
-    * TBD
+  * AWS Cognito
 * Database
-    * MySQL 8.x
+  * MySQL 8.x
+  * Amazon RDS
 * ORM Framework
-    * Hibernate
+  * Hibernate
 * Dependency Management
-    * Maven
+  * Maven
 * Web Services
-    * TBD
+  * Weather API
 * CSS
-    * Bootstrap
+  * Bootstrap
 * Logging
-    * Log4J2
+  * Log4J2
 * Hosting
-    * AWS
+  * AWS Elastic Beanstalk
 * Unit Testing
-    * JUnit
+  * JUnit
 * IDE
-    * IntelliJ IDEA
+  * IntelliJ IDEA
 
 ### Design
 
