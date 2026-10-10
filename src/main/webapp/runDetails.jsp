@@ -11,6 +11,7 @@
     <p>Date: ${run.runDate}</p>
     <p>Distance: ${run.distance} miles</p>
     <p>Duration: ${run.duration} seconds</p>
+    <p>Average Pace: ${run.pace} /mi</p>
     <p>Notes: ${run.notes}</p>
 
     <a href="editRun?id=${run.id}">Edit Run</a>
