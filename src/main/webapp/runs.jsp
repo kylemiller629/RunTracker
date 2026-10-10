@@ -14,6 +14,7 @@
                 <th>Distance</th>
                 <th>Duration</th>
                 <th>Notes</th>
+                <th>Actions</th>
             </tr>
 
             <c:forEach var="run" items="${runs}">
@@ -22,6 +23,7 @@
                     <td>${run.distance}</td>
                     <td>${run.duration}</td>
                     <td>${run.notes}</td>
+                    <td><a href="editRun?id=${run.id}">Edit</a></td>
                 </tr>
             </c:forEach>
         </table>
