@@ -51,7 +51,7 @@ public class EditRun extends HttpServlet {
         runDao.saveOrUpdate(run);
 
 
-        response.sendRedirect("viewRun");
+        response.sendRedirect("viewRuns");
 
     }
 
