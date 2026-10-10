@@ -23,7 +23,14 @@
                     <td>${run.distance}</td>
                     <td>${run.duration}</td>
                     <td>${run.notes}</td>
-                    <td><a href="editRun?id=${run.id}">Edit</a></td>
+                    <td><a href="editRun?id=${run.id}">Edit</a>
+                        <form action="deleteRun" method="post" onsubmit="return confirm('Are you sure you want to delete this run?')">
+                            <input type="hidden" name="id" value="${run.id}">
+                            <button type="submit">Delete</button>
+
+                        </form>
+                    </td>
+
                 </tr>
             </c:forEach>
         </table>
