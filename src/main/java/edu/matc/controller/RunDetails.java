@@ -17,7 +17,7 @@ import java.io.IOException;
  *
  * @author kmiller
  */
-@WebServlet
+@WebServlet("/runDetails")
 public class RunDetails extends HttpServlet {
 
     @Override
