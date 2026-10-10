@@ -172,6 +172,26 @@ public class Run {
     }
 
     /**
+     * Calculates the average pace per mile
+     *
+     * @return pace
+     */
+    public String getPace() {
+
+        if (distance <= 0) {
+            return "N/A";
+        }
+
+        int secondsPerMile = (int) Math.round(duration / distance);
+
+        int minutes = secondsPerMile / 60;
+        int seconds = secondsPerMile % 60;
+
+        return String.format("%02d:%02d", minutes, seconds);
+
+    }
+
+    /**
      * Compares this run to another object for equality.
      *
      * @param o object to compare
