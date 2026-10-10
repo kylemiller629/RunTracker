@@ -8,11 +8,18 @@
 <body>
 
     <h1>My Runs</h1>
+
+    <h2>Running Summary</h2>
+
+    <p>Total Runs: ${totalRuns}</p>
+    <p>Total Distance: ${totalDistance}</p>
+
         <table>
             <tr>
                 <th>Date</th>
                 <th>Distance</th>
                 <th>Duration</th>
+                <th>Pace</th>
                 <th>Notes</th>
                 <th>Actions</th>
             </tr>
@@ -22,6 +29,7 @@
                     <td>${run.runDate}</td>
                     <td>${run.distance}</td>
                     <td>${run.duration}</td>
+                    <td>${run.pace} /mi</td>
                     <td>${run.notes}</td>
                     <td>
                         <a href="runDetails?id=${run.id}">Details</a>

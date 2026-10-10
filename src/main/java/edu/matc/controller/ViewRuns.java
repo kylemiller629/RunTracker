@@ -26,6 +26,15 @@ public class ViewRuns extends HttpServlet {
 
         List<Run> runs = runDao.getAll();
 
+        int totalRuns = runs.size();
+        double totalDistance = 0;
+
+        for (Run run : runs) {
+            totalDistance += run.getDistance();
+        }
+
+        request.setAttribute("totalRuns", totalRuns);
+        request.setAttribute("totalDistance", totalDistance);
         request.setAttribute("runs", runs);
 
         request.getRequestDispatcher("/runs.jsp").forward(request, response);
