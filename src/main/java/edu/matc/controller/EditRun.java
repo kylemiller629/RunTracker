@@ -32,4 +32,27 @@ public class EditRun extends HttpServlet {
         request.getRequestDispatcher("editRun.jsp").forward(request, response);
     }
 
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+
+        String runDate = request.getParameter("runDate");
+        String distance = request.getParameter("distance");
+        String duration = request.getParameter("duration");
+        String notes = request.getParameter("notes");
+        RunDao runDao = new RunDao();
+        Run run = runDao.getById(id);
+
+        run.setRunDate(LocalDate.parse(runDate));
+        run.setDistance(Double.parseDouble(distance));
+        run.setDuration(Integer.parseInt(duration));
+        run.setNotes(notes);
+
+        runDao.saveOrUpdate(run);
+
+
+        response.sendRedirect("viewRun");
+
+    }
+
 }
