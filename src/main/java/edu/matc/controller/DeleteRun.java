@@ -20,17 +20,32 @@ public class DeleteRun  extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        int id = Integer.parseInt(request.getParameter("id"));
+        Integer userId = (Integer)request.getSession().getAttribute("userId");
 
-        RunDao runDao = new RunDao();
-
-        Run run = runDao.getById(id);
-
-        if (run != null){
-            runDao.delete(run);
+        if (userId == null) {
+            response.sendRedirect(request.getContextPath() + "/logIn");
+            return;
         }
 
-        response.sendRedirect("viewRuns");
+        int id;
+
+        try {
+            id =  Integer.parseInt(request.getParameter("id"));
+        } catch (NumberFormatException e) {
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+            return;
+        }
+
+        RunDao runDao = new RunDao();
+        Run run = runDao.getById(id);
+
+        if (run == null || run.getUser() == null || run.getUser().getId() != userId) {
+            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            return;
+        }
+
+        runDao.delete(run);
+        response.sendRedirect(request.getContextPath() + "/viewRuns");
 
     }
 }
