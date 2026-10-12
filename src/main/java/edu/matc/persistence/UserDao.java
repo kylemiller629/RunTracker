@@ -3,6 +3,7 @@ package edu.matc.persistence;
 import edu.matc.entity.User;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Root;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
@@ -74,6 +75,32 @@ public class UserDao {
         session.delete(user);
         tx.commit();
         session.close();
+    }
+
+
+    /**
+     * Gets a user by their username
+     *
+     * @param userName username to search
+     * @return the matching user or null if not found
+     */
+    public User getByUserName(String userName) {
+        Session session = sessionFactory.openSession();
+
+        CriteriaBuilder cb = sessionFactory.getCriteriaBuilder();
+        CriteriaQuery<User> cq = cb.createQuery(User.class);
+
+        Root<User> root = cq.from(User.class);
+        cq.select(root).where(cb.equal(root.get("userName"), userName));
+
+        List<User> list = session.createQuery(cq).getResultList();
+
+        session.close();
+        if (list.isEmpty()) {
+            return null;
+        }
+
+        return list.get(0);
     }
 
     /**
