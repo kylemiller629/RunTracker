@@ -13,7 +13,7 @@ public class Home extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Integer userId = (Integer)req.getSession().getAttribute("user_id");
+        Integer userId = (Integer)req.getSession().getAttribute("userId");
 
         if (userId != null) {
             resp.sendRedirect(req.getContextPath()+"/dashboard");
