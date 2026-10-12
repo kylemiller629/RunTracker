@@ -1,7 +1,9 @@
 package edu.matc.controller;
 
 import edu.matc.entity.Run;
+import edu.matc.entity.User;
 import edu.matc.persistence.RunDao;
+import edu.matc.persistence.UserDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,6 +24,11 @@ public class AddRun extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        Integer userId = (Integer)request.getSession().getAttribute("userId");
+        if (userId == null){
+            response.sendRedirect(request.getContextPath()+"/logIn");
+            return;
+        }
         String runDate = request.getParameter("runDate");
         String distance = request.getParameter("distance");
         String duration = request.getParameter("duration");
@@ -33,6 +40,11 @@ public class AddRun extends HttpServlet {
         run.setDistance(Double.parseDouble(distance));
         run.setDuration(Integer.parseInt(duration));
         run.setNotes(notes);
+
+        UserDao userDao = new UserDao();
+        User user = userDao.getById(userId);
+
+        run.setUser(user);
 
         RunDao runDao = new RunDao();
         runDao.insert(run);
