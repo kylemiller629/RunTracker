@@ -1,6 +1,7 @@
 package edu.matc.persistence;
 
 import edu.matc.entity.Run;
+import jakarta.persistence.criteria.Root;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
@@ -92,6 +93,27 @@ public class RunDao {
         criteriaQuery.from(Run.class);
 
         List<Run> runs = session.createQuery(criteriaQuery).getResultList();
+        session.close();
+        return runs;
+    }
+
+    /**
+     * Gets all runs belonging to a specific user
+     *
+     * @param userId ID of the user
+     * @return list of runs belonging to the user
+     */
+    public List<Run> getByUserId(int userId) {
+        Session session = sessionFactory.openSession();
+
+        CriteriaBuilder builder = sessionFactory.getCriteriaBuilder();
+        CriteriaQuery<Run> criteriaQuery = builder.createQuery(Run.class);
+        Root<Run> root = criteriaQuery.from(Run.class);
+
+        criteriaQuery.where(builder.equal(root.get("userId"), userId));
+
+        List<Run> runs = session.createQuery(criteriaQuery).getResultList();
+
         session.close();
         return runs;
     }
