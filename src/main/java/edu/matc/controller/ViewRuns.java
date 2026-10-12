@@ -22,10 +22,10 @@ public class ViewRuns extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Integer userId = (Integer) request.getSession().getAttribute("user_id");
+        Integer userId = (Integer) request.getSession().getAttribute("userId");
 
         if (userId == null) {
-            response.sendRedirect(request.getContextPath() + "/login");
+            response.sendRedirect(request.getContextPath() + "/logIn");
             return;
         }
 
