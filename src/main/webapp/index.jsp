@@ -17,6 +17,28 @@
 
             <p>Total Runs: ${totalRuns}</p>
             <p>Total Distance: ${totalDistance} miles</p>
+
+            <h3>My Runs</h3>
+
+            <table>
+                <tr>
+                    <th>Date</th>
+                    <th>Distance</th>
+                    <th>Duration</th>
+                    <th>Pace</th>
+                    <th>Notes</th>
+                </tr>
+
+                <c:forEach var="run" items="${runs}">
+                    <tr>
+                        <td>${run.runDate}</td>
+                        <td>${run.distance}</td>
+                        <td>${run.duration}</td>
+                        <td>${run.pace}</td>
+                        <td>${run.notes}</td>
+                    </tr>
+                </c:forEach>
+            </table>
         </c:if>
 
     </main>
