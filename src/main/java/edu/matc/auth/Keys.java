@@ -1,9 +1,10 @@
 package edu.matc.auth;
 
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Keys{
+import java.util.List;
+
+public class Keys {
 
 	@JsonProperty("keys")
 	private List<KeysItem> keys;

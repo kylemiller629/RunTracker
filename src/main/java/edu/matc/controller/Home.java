@@ -35,8 +35,8 @@ public class Home extends HttpServlet {
             totalDistance += run.getDistance();
         }
 
-        request.setAttribute("runs", runs);
         request.setAttribute("totalRuns", totalRuns);
+        request.setAttribute("totalDistance", totalDistance);
 
         request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
