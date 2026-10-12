@@ -43,6 +43,7 @@ public class EditRun extends HttpServlet {
 
         if (run == null || run.getUser() == null || run.getUser().getId() != userId) {
             response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+            return;
         }
 
         request.setAttribute("run", run);
@@ -65,7 +66,7 @@ public class EditRun extends HttpServlet {
         try {
             id = Integer.parseInt(request.getParameter("id"));
         } catch (NumberFormatException e) {
-            response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+            response.sendError(HttpServletResponse.SC_NOT_FOUND);
             return;
         }
 
