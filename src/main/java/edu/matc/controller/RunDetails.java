@@ -23,11 +23,29 @@ public class RunDetails extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        int id  = Integer.parseInt(request.getParameter("id"));
+        Integer userId = (Integer) request.getSession().getAttribute("userId");
+
+        if (userId == null) {
+            response.sendRedirect(request.getContextPath() + "/logIn");
+            return;
+        }
+
+        int id;
+
+        try {
+            id = Integer.parseInt(request.getParameter("id"));
+        }  catch (NumberFormatException e) {
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST);
+            return;
+        }
 
         RunDao runDao = new RunDao();
         Run run = runDao.getById(id);
 
+        if (run == null || run.getUser() == null || run.getUser().getId() != userId) {
+            response.sendError(HttpServletResponse.SC_NOT_FOUND);
+            return;
+        }
         request.setAttribute("run",run);
 
         request.getRequestDispatcher("/runDetails.jsp").forward(request,response);
