@@ -2,7 +2,7 @@ package edu.matc.auth;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class KeysItem{
+public class KeysItem {
 
 	@JsonProperty("kty")
 	private String kty;
