@@ -8,7 +8,7 @@
     <c:import url="header.jsp" />
 
     <main>
-        <h2>Welcome to MileMarker</h2>
+        <h2>Welcome to MileMarker, ${sessionScope.userName}!</h2>
         <p>Track your miles! Reach your goals!</p>
 
         <h3>Running Summary</h3>
