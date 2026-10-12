@@ -7,6 +7,8 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.matc.auth.*;
+import edu.matc.entity.User;
+import edu.matc.persistence.UserDao;
 import org.apache.commons.io.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -88,8 +90,25 @@ public class Auth extends HttpServlet {
             try {
                 TokenResponse tokenResponse = getToken(authRequest);
                 userName = validate(tokenResponse);
+
+                UserDao userDao = new UserDao();
+                User user = userDao.getByUserName(userName);
+
+                if (user == null) {
+                    user = new User("", "", userName);
+                    int userId = userDao.insert(user);
+
+                    logger.debug("New Milemarker user created with id: " + userId);
+
+                } else {
+                    logger.debug("Existing user found" + userName);
+                }
+
                 req.setAttribute("userName", userName);
                 req.getSession().setAttribute("userName", userName);
+
+
+                req.getSession().setAttribute("userId", user.getId());
             } catch (IOException e) {
                 logger.error("Error getting or validating the token: " + e.getMessage(), e);
                 RequestDispatcher dispatcher = req.getRequestDispatcher("/error.jsp");
