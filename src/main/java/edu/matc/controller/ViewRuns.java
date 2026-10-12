@@ -22,9 +22,16 @@ public class ViewRuns extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        Integer userId = (Integer) request.getSession().getAttribute("user_id");
+
+        if (userId == null) {
+            response.sendRedirect(request.getContextPath() + "/login");
+            return;
+        }
+
         RunDao runDao = new RunDao();
 
-        List<Run> runs = runDao.getAll();
+        List<Run> runs = runDao.getByUserId(userId);
 
         int totalRuns = runs.size();
         double totalDistance = 0;
