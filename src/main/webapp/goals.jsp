@@ -15,6 +15,8 @@
             <th>Target</th>
             <th>Start Date</th>
             <th>End Date</th>
+            <th>Miles Completed</th>
+            <th>Progress</th>
         </tr>
 
         <c:forEach var="goal" items="${goals}">
@@ -23,6 +25,8 @@
                 <td>${goal.target}</td>
                 <td>${goal.startDate}</td>
                 <td>${goal.endDate}</td>
+                <td>${progressMap[goal.id]} miles</td>
+                <td>${percentMap[goal.id]}%</td>
             </tr>
         </c:forEach>
     </table>

@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Controller for viewing a user's goals
@@ -43,12 +45,25 @@ public class ViewGoals extends HttpServlet {
         List<Goal> goals = user.getGoals();
         List<Run> runs = user.getRuns();
 
+        Map<Integer, Double> progressMap = new HashMap<>();
+        Map<Integer, Double> percentMap = new HashMap<>();
+
         for (Goal goal : goals) {
             double progress = goal.calculateProgress(runs);
-            System.out.println(goal.getGoalType() + ": " + progress + " miles");
+            double percentage = 0;
+
+            if (goal.getTarget() > 0) {
+                percentage = (progress / goal.getTarget()) * 100;
+            }
+
+            progressMap.put(goal.getId(), progress);
+            percentMap.put(goal.getId(), Math.round(percentage * 10) / 10.0);
         }
 
         request.setAttribute("goals", goals);
-        request.getRequestDispatcher("goals.jsp").forward(request, response);
+        request.setAttribute("progressMap", progressMap);
+        request.setAttribute("percentMap", percentMap);
+
+        request.getRequestDispatcher("/goals.jsp").forward(request, response);
     }
 }
