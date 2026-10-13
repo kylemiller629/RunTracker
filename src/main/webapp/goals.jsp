@@ -1,11 +1,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <title>MileMarker- Goals</title>
 </head>
 <body>
-
+    <c:import url="header.jsp" />
     <h1>My Running Goals</h1>
 
     <table>
