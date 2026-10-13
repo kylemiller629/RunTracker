@@ -13,8 +13,26 @@
 
         <input type="hidden" name="id" value="${goal.id}">
 
+        <label for="goalType">Goal Type:</label>
+        <select id="goalType" name="goalType" required>
+            <option value="Weekly Distance" ${goal.goalType == 'Weekly Distance' ? 'selected' : ''}>Weekly Distance</option>
 
+            <option value="Monthly Distance" ${goal.goalType == 'Monthly Distance' ? 'selected' : ''}>Monthly Distance</option>
 
+        </select>
+        <br>
+
+        <label for="target">Target Distance (miles):</label>
+        <input type="number" id="target" name="target" value="${goal.target}" step="0.1" min="0.1" required>
+        <br>
+
+        <label for="startDate">Start Date:</label>
+        <input type="date" id="startDate" name="startDate" value="${goal.startDate}" required>
+        <br>
+
+        <label for="endDate">End Date:</label>
+        <input type="date" id="endDate" name="endDate" value="${goal.endDate}" required>
+        <br>
 
         <button type="submit">Save Changes</button>
 
