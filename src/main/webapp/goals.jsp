@@ -27,8 +27,16 @@
                 <td>${goal.startDate}</td>
                 <td>${goal.endDate}</td>
                 <td>${progressMap[goal.id]} miles</td>
-                <td>${percentMap[goal.id]}%</td>
-                <td><a href="editGoal?id=${goal.id}">Edit</a></td>
+                <td>
+                    <progress value="${percentMap[goal.id]}" max="100"></progress>
+                    ${percentMap[goal.id]}%
+                </td>
+                <td><a href="editGoal?id=${goal.id}">Edit</a>
+                    <form action="deleteGoal" method="post" onsubmit="return confirm('Are you sure you want to delete?');">
+                        <input type="hidden" name="id" value="${goal.id}">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
             </tr>
         </c:forEach>
     </table>
