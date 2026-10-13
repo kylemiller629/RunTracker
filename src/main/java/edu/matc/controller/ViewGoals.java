@@ -1,6 +1,7 @@
 package edu.matc.controller;
 
 import edu.matc.entity.Goal;
+import edu.matc.entity.Run;
 import edu.matc.entity.User;
 import edu.matc.persistence.UserDao;
 
@@ -40,6 +41,13 @@ public class ViewGoals extends HttpServlet {
         }
 
         List<Goal> goals = user.getGoals();
+        List<Run> runs = user.getRuns();
+
+        for (Goal goal : goals) {
+            double progress = goal.calculateProgress(runs);
+            System.out.println(goal.getGoalType() + ": " + progress + " miles");
+        }
+
         request.setAttribute("goals", goals);
         request.getRequestDispatcher("goals.jsp").forward(request, response);
     }
