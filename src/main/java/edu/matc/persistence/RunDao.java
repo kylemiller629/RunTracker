@@ -111,6 +111,7 @@ public class RunDao {
         Root<Run> root = criteriaQuery.from(Run.class);
 
         criteriaQuery.where(builder.equal(root.get("user").get("id"), userId));
+        criteriaQuery.orderBy(builder.desc(root.get("runDate")));
 
         List<Run> runs = session.createQuery(criteriaQuery).getResultList();
 
