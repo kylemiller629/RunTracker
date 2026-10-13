@@ -3,6 +3,7 @@ package edu.matc.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -111,6 +112,27 @@ public class Goal {
     }
 
     /**
+     * Calculates the total distance run during the goal's date range
+     *
+     * @param runs user's runs
+     * @return total distance toward the goal
+     */
+    public double calculateProgress(List<Run> runs) {
+
+        double totalDistance = 0;
+
+        for (Run run : runs) {
+            LocalDate runDate = run.getRunDate();
+
+            if (!runDate.isBefore(startDate) && !runDate.isAfter(endDate)) {
+                totalDistance += run.getDistance();
+            }
+        }
+
+        return totalDistance;
+    }
+
+    /**
      * Compares this goal to another object
      * @param o object to compare
      * @return true if the objects are equal
@@ -135,6 +157,7 @@ public class Goal {
      */
     @Override
     public int hashCode() {
+
         return Objects.hash(id, goalType, target, startDate, endDate);
     }
 }
