@@ -36,6 +36,12 @@ public class Dashboard  extends HttpServlet {
         RunDao runDao = new RunDao();
         List<Run> runs = runDao.getByUserId(userId);
 
+        List<Run> recentRuns = runs;
+
+        if (runs.size() > 5) {
+            recentRuns = runs.subList(0, 5);
+        }
+
         int totalRuns = runs.size();
         double totalDistance = 0;
 
@@ -75,6 +81,7 @@ public class Dashboard  extends HttpServlet {
         req.setAttribute("goals", goals);
         req.setAttribute("progressMap", progressMap);
         req.setAttribute("percentMap", percentMap);
+        req.setAttribute("recentRuns", recentRuns);
 
         req.getRequestDispatcher("index.jsp").forward(req, resp);
     }
