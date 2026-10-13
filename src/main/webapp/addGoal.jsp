@@ -1,10 +1,13 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <title>MileMarker - Add Goal</title>
 </head>
 <body>
+  <c:import url="header.jsp" />
   <h1>Add Running Goal</h1>
   <form action="addGoal" method="post">
 

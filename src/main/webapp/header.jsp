@@ -8,6 +8,7 @@
         <a href="home">Home</a>
         <a href="viewRuns">Runs</a>
         <a href="addRun.jsp">Add Run</a>
+        <a href="viewGoals">My Goals</a>
         <a href="addGoal.jsp">Add Goal</a>
         <a href="logIn">Log In</a>
     </nav>
