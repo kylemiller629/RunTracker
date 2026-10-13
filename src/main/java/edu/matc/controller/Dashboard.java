@@ -74,7 +74,7 @@ public class Dashboard  extends HttpServlet {
         req.setAttribute("runs", runs);
         req.setAttribute("goals", goals);
         req.setAttribute("progressMap", progressMap);
-        req.setAttribute("percentageMap", percentMap);
+        req.setAttribute("percentMap", percentMap);
 
         req.getRequestDispatcher("index.jsp").forward(req, resp);
     }
