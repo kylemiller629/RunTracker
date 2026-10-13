@@ -17,6 +17,7 @@
             <th>End Date</th>
             <th>Miles Completed</th>
             <th>Progress</th>
+            <th>Action</th>
         </tr>
 
         <c:forEach var="goal" items="${goals}">
@@ -27,6 +28,7 @@
                 <td>${goal.endDate}</td>
                 <td>${progressMap[goal.id]} miles</td>
                 <td>${percentMap[goal.id]}%</td>
+                <td><a href="editGoal?id=${goal.id}">Edit</a></td>
             </tr>
         </c:forEach>
     </table>
