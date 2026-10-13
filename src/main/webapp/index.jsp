@@ -18,7 +18,7 @@
             <p>Total Runs: ${totalRuns}</p>
             <p>Total Distance: ${totalDistance} miles</p>
 
-            <h3>My Runs</h3>
+            <h3>Recent Runs</h3>
 
             <table>
                 <tr>
@@ -29,7 +29,7 @@
                     <th>Notes</th>
                 </tr>
 
-                <c:forEach var="run" items="${runs}">
+                <c:forEach var="run" items="${recentRuns}">
                     <tr>
                         <td>${run.runDate}</td>
                         <td>${run.distance}</td>
