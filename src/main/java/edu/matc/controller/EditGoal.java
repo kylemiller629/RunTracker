@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 
 /**
- * Controller for editing a run
+ * Controller for editing a goal
  *
  * @author kmiller
  */
@@ -23,7 +23,7 @@ public class EditGoal  extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Integer userId = (Integer) request.getSession().getAttribute("userID");
+        Integer userId = (Integer) request.getSession().getAttribute("userId");
 
         if (userId == null) {
             response.sendRedirect(request.getContextPath() + "/logIn");
@@ -54,7 +54,7 @@ public class EditGoal  extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        Integer userId = (Integer) request.getSession().getAttribute("userID");
+        Integer userId = (Integer) request.getSession().getAttribute("userId");
 
         if (userId == null) {
             response.sendRedirect(request.getContextPath() + "/logIn");
