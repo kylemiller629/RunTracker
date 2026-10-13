@@ -39,6 +39,28 @@
                     </tr>
                 </c:forEach>
             </table>
+
+            <h3>My Running Goals</h3>
+                <table>
+                    <tr>
+                        <th>Goal Type</th>
+                        <th>Target</th>
+                        <th>Miles Complete</th>
+                        <th>Progress</th>
+                    </tr>
+
+                    <c:forEach var="goal" items="${goals}">
+                        <tr>
+                            <td>${goal.goalType}</td>
+                            <td>${goal.target} miles</td>
+                            <td>${progressMap[goal.id]} miles</td>
+                            <td>
+                                <progress value="${percentMap[goal.id]}" max="100"></progress>
+                                ${percentMap[goal.id]}%
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </table>
         </c:if>
 
     </main>
