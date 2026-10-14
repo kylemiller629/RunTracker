@@ -65,15 +65,11 @@ public class Dashboard  extends HttpServlet {
 
         for (Goal goal : goals) {
             double progress = goal.calculateProgress(runs);
-            double percentage = 0;
-
-            if (goal.getTarget() > 0) {
-                percentage = (progress / goal.getTarget()) * 100;
-            }
+            double percentage = goal.calculatePercentage(runs);
 
             progressMap.put(goal.getId(), progress);
-            percentMap.put(goal.getId(), Math.round(percentage * 10) / 10.0);
-        }
+            percentMap.put(goal.getId(), percentage);
+            }
 
         req.setAttribute("totalRuns", totalRuns);
         req.setAttribute("totalDistance", totalDistance);
