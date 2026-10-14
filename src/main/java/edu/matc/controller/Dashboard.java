@@ -42,13 +42,6 @@ public class Dashboard  extends HttpServlet {
             recentRuns = runs.subList(0, 5);
         }
 
-        int totalRuns = runs.size();
-        double totalDistance = 0;
-
-        for (Run run : runs){
-            totalDistance += run.getDistance();
-        }
-
         UserDao userDao = new UserDao();
         User user = userDao.getById(userId);
 
@@ -57,6 +50,9 @@ public class Dashboard  extends HttpServlet {
             resp.sendRedirect(req.getContextPath()+"/logIn");
             return;
         }
+
+        int totalRuns = runs.size();
+        double totalDistance = user.calculateTotalDistance();
 
         List<Goal> goals = user.getGoals();
 
@@ -69,7 +65,7 @@ public class Dashboard  extends HttpServlet {
 
             progressMap.put(goal.getId(), progress);
             percentMap.put(goal.getId(), percentage);
-            }
+        }
 
         req.setAttribute("totalRuns", totalRuns);
         req.setAttribute("totalDistance", totalDistance);
