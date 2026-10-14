@@ -133,6 +133,24 @@ public class Goal {
     }
 
     /**
+     * Calculates the percentage completed toward this goal.
+     *
+     * @param runs the user's runs
+     * @return the goal completion percentage
+     */
+    public double calculatePercentage(List<Run> runs) {
+
+        if (target <= 0) {
+            return 0;
+        }
+
+        double progress = calculateProgress(runs);
+        double percentage = (progress / target) * 100;
+
+        return Math.round(percentage * 10) / 10;
+    }
+
+    /**
      * Compares this goal to another object
      * @param o object to compare
      * @return true if the objects are equal
