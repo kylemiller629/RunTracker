@@ -52,12 +52,8 @@ public class ViewGoals extends HttpServlet {
             double progress = goal.calculateProgress(runs);
             double percentage = 0;
 
-            if (goal.getTarget() > 0) {
-                percentage = (progress / goal.getTarget()) * 100;
-            }
-
             progressMap.put(goal.getId(), progress);
-            percentMap.put(goal.getId(), Math.round(percentage * 10) / 10.0);
+            percentMap.put(goal.getId(), percentage);
         }
 
         request.setAttribute("goals", goals);
