@@ -206,6 +206,19 @@ public class User {
     }
 
     /**
+     * Calculates the total distance of all runs
+     *
+     * @return total running distance in miles
+     */
+    public double calculateTotalDistance() {
+        double totalDistance = 0;
+        for (Run run : runs) {
+            totalDistance += run.getDistance();
+        }
+        return totalDistance;
+    }
+
+    /**
      * Compares this user to another object for equality.
      *
      * @param o object to compare
