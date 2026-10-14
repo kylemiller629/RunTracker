@@ -1,6 +1,7 @@
 # Project Plan
 
-### Week 2
+### Week 2 - Project Setup
+#### Focus: Create the project repository and development environment
 - [X] Create project repository on GitHub
 - [X] Create project structure in IntelliJ and push
 - [X] Add link to list of indie projects in student repo
@@ -8,8 +9,7 @@
 
 
 ### Week 3 - Project Planning
-- [ ] Research possible Web Services/APIs to use
-- [ ] List technologies, versions, and how they will be used
+#### Focus: Define project requirements, user stories, and initial design.
 - [X] Write project plan
 - [X] Document user stories and select MVP stories
 - [ ] Confirm MVP stories meet Enterprise Java indie project objectives
@@ -18,38 +18,34 @@
 - [X] Update journal/time log/reflection
 
 
-### Week 4 - Hibernate
-#### This week's focus is the Add Run and View Runs user stories
+### Week 4 - Hibernate and Checkpoint 1
+#### Focus: Create the database and implement the Run entity and DAO.
 
 - [X] Create first database design
 - [X] Create development version of the database
 - [X] Create Run entity
 - [X] Create DAO for Run
-- [X] Implement CRUD operations in Run DAO
+- [X] Implement CRUD operations using hibernate
 - [X] Create database configuration files for development and testing
 - [X] Create test database for unit testing
 - [X] Create unit tests for Run DAO
 - [X] Update weekly reflection
 
 
-### Week 5 - One-to-Many Relationships
-#### This week's focus is the User entity and connecting users to runs and goals
+### Week 5 - Entity Relationships
+#### Focus: Impliment relationship between users, runs, and goals.
 
-- [X] Create User table
-- [X] Create User entity
+- [X] Create User table and entity
 - [X] Create UserDao
 - [X] Create User-to-Run one-to-many relationship
 - [X] Create Goal table
 - [X] Create Goal entity
 - [X] Create GoalDao
 - [X] Create User-to-Goal one-to-many relationship
-- [X] Create unit tests for UserDao
-- [X] Create unit tests for GoalDao
-- [X] Test User-to-Run relationship
-- [X] Test User-to-Goal relationship
-- [X] Verify deleting a User deletes associated Runs and Goals
-- [X] Verify deleting a Run does not delete its User
-- [X] Run tests and review test coverage
+- [X] Create JUnit tests for UserDao
+- [X] Create JUnit tests for GoalDao
+- [X] Test entity relationships
+- [X] Verify DAO CRUD operations
 - [X] Update weekly reflection
 
 
