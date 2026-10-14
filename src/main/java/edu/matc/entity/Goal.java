@@ -147,7 +147,7 @@ public class Goal {
         double progress = calculateProgress(runs);
         double percentage = (progress / target) * 100;
 
-        return Math.round(percentage * 10) / 10;
+        return Math.round(percentage * 10) / 10.0;
     }
 
     /**
