@@ -50,7 +50,7 @@ public class ViewGoals extends HttpServlet {
 
         for (Goal goal : goals) {
             double progress = goal.calculateProgress(runs);
-            double percentage = 0;
+            double percentage = goal.calculatePercentage(runs);
 
             progressMap.put(goal.getId(), progress);
             percentMap.put(goal.getId(), percentage);
