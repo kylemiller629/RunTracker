@@ -1,6 +1,9 @@
 package edu.matc.test.util;
+import org.apache.logging.log4j.LogManager;
+
 import java.io.*;
 import java.util.*;
+import org.apache.logging.log4j.Logger;
 
 /**
  * This interface contains a default method that can be used anywhere a Properties
@@ -9,6 +12,8 @@ import java.util.*;
  *
  */
 public interface PropertiesLoader {
+
+    Logger logger =  LogManager.getLogger(PropertiesLoader.class);
 
     /**
      * This default method will load a properties file into a Properties instance
@@ -22,9 +27,9 @@ public interface PropertiesLoader {
         try {
             properties.load(this.getClass().getResourceAsStream(propertiesFilePath));
         } catch (IOException ioException) {
-            ioException.printStackTrace();
+            logger.error("Error loading properties", ioException);
         } catch (Exception exception) {
-            exception.printStackTrace();
+            logger.error("Undexpected error loading properties file", exception);
         }
         return properties;
     }
