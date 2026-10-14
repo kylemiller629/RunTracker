@@ -1,7 +1,9 @@
 package edu.matc.controller;
 
 import edu.matc.entity.Run;
+import edu.matc.entity.User;
 import edu.matc.persistence.RunDao;
+import edu.matc.persistence.UserDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -33,12 +35,16 @@ public class ViewRuns extends HttpServlet {
 
         List<Run> runs = runDao.getByUserId(userId);
 
-        int totalRuns = runs.size();
-        double totalDistance = 0;
+        UserDao userDao = new UserDao();
+        User user = userDao.getById(userId);
 
-        for (Run run : runs) {
-            totalDistance += run.getDistance();
+        if (user == null) {
+            response.sendRedirect(request.getContextPath() + "/logIn");
+            return;
         }
+
+        int totalRuns = runs.size();
+        double totalDistance = user.calculateTotalDistance();
 
         request.setAttribute("totalRuns", totalRuns);
         request.setAttribute("totalDistance", totalDistance);
