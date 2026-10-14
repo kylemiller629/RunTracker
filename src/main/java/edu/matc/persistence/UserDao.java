@@ -29,6 +29,7 @@ public class UserDao {
      * @param id user id
      */
     public User getById(int id) {
+        logger.info("getById" + id);
         Session session = sessionFactory.openSession();
         User user = session.get( User.class, id );
         session.close();
@@ -41,10 +42,12 @@ public class UserDao {
      * @param user user to save or update
      */
     public void saveOrUpdate(User user) {
+
         Session session = sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
         session.merge(user);
         tx.commit();
+        logger.info("saveOrUpdate" + user);
         session.close();
     }
 
@@ -60,6 +63,9 @@ public class UserDao {
 
         int id = (int) session.save(user);
         tx.commit();
+
+        logger.info("insert" + user);
+
         session.close();
         return id;
     }
@@ -74,6 +80,7 @@ public class UserDao {
         Transaction tx = session.beginTransaction();
         session.delete(user);
         tx.commit();
+        logger.info("delete" + user.getId());
         session.close();
     }
 
@@ -109,6 +116,7 @@ public class UserDao {
      * @return list of users
      */
     public List<User> getAll() {
+        logger.info("getting all users");
         Session session = sessionFactory.openSession();
         CriteriaBuilder cb = sessionFactory.getCriteriaBuilder();
         CriteriaQuery<User> cq = cb.createQuery(User.class);
