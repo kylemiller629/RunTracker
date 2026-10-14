@@ -75,16 +75,16 @@
 ### Week 7 - Goals and Running Statistics
 #### This week's focus is adding goal functionality and running statistics
 
-- [ ] Create JSP for adding a running goal
-- [ ] Create controller for adding a running goal
-- [ ] Create JSP for viewing running goals
-- [ ] Create controller for viewing running goals
-- [ ] Display progress toward running goals
-- [ ] Calculate pace for a run
-- [ ] Display calculated pace
-- [ ] Calculate total number of runs
-- [ ] Calculate total running distance
-- [ ] Display running summary on the homepage/dashboard
+- [X] Create JSP for adding a running goal
+- [X] Create controller for adding a running goal
+- [X] Create JSP for viewing running goals
+- [X] Create controller for viewing running goals
+- [X] Display progress toward running goals
+- [X] Calculate pace for a run
+- [X] Display calculated pace
+- [X] Calculate total number of runs
+- [X] Calculate total running distance
+- [X] Display running summary on the homepage/dashboard
 - [ ] Update weekly reflection
 
 
