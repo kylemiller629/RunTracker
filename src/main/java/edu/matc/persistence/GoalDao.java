@@ -22,6 +22,7 @@ public class GoalDao {
      * @return goal
      */
     public Goal getById(int id) {
+        logger.info("getting goal by id " + id);
         Session session = sessionFactory.openSession();
         Goal goal = (Goal) session.get(Goal.class, id);
         session.close();
@@ -38,6 +39,7 @@ public class GoalDao {
 
         session.merge(goal);
         tx.commit();
+        logger.info("Goal " + goal.getId() + " saved");
         session.close();
     }
 
@@ -53,9 +55,10 @@ public class GoalDao {
         int id = (int) session.save(goal);
 
         tx.commit();
+        logger.info("Goal " + goal.getId() + " has been saved successfully");
+
         session.close();
 
-        logger.info("Goal " + goal.getId() + " has been saved successfully");
         return id;
     }
 
