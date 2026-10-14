@@ -87,6 +87,7 @@ public class RunDao {
      * @return all runs
      */
     public List<Run> getAll() {
+        logger.info("get all runs");
         Session session = sessionFactory.openSession();
 
         CriteriaBuilder builder = session.getCriteriaBuilder();
@@ -105,6 +106,7 @@ public class RunDao {
      * @return list of runs belonging to the user
      */
     public List<Run> getByUserId(int userId) {
+        logger.info("get runs by userId " + userId);
         Session session = sessionFactory.openSession();
 
         CriteriaBuilder builder = sessionFactory.getCriteriaBuilder();
