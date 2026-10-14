@@ -46,6 +46,7 @@ public class RunDao {
 
         session.merge(run);
         tx.commit();
+        logger.debug("run" + run.getId() + "has been updated");
         session.close();
     }
 
