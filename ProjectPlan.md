@@ -53,8 +53,8 @@
 - [X] Update weekly reflection
 
 
-### Week 6 - Run Web Functionality
-#### This week's focus is completing the Run user story from the database to the web application
+### Week 6 - Run Web Management and AWS Setup
+#### Focus: Build the run management interface and begin AWS deployment.
 
 - [X] Create ViewRuns controller
 - [X] Create JSP for viewing runs
@@ -65,31 +65,26 @@
 - [X] Redirect to View Runs after adding a run
 - [X] Create basic MileMarker homepage
 - [X] Create reusable header/navigation JSP
-- [ ] Add edit run functionality
-- [ ] Add delete run functionality
-- [ ] Add run details page
-- [ ] Add run search functionality
-- [ ] Update weekly reflection
+- [X] Calculate and display running pace
+- [X] Create AWS Elastic Beanstalk environment
+- [X] Update weekly reflection
 
 
-### Week 7 - Goals and Running Statistics
-#### This week's focus is adding goal functionality and running statistics
-
-- [X] Create JSP for adding a running goal
-- [X] Create controller for adding a running goal
-- [X] Create JSP for viewing running goals
-- [X] Create controller for viewing running goals
-- [X] Display progress toward running goals
-- [X] Calculate pace for a run
-- [X] Display calculated pace
-- [X] Calculate total number of runs
-- [X] Calculate total running distance
-- [X] Display running summary on the homepage/dashboard
-- [ ] Update weekly reflection
+### Week 7 - Authentication, Goals, and Checkpoint 2
+#### Focus: Integrate Cognito, complete goal management, and verify database functionality.
+- [X] Configure AWS Cognito authentication
+- [X] Implement Cognito sign-in
+- [X] Connect authenticated users to MySQL user records
+- [X] Implement CRUD for goals
+- [X] Calculate running goal progress
+- [X] Display goals on dashboard
+- [X] Display total runs and total distance on dashboard
+- [] Submit Checkpoint 2
+- [X] Update weekly reflection
 
 
 ### Week 8 - Web Services/API
-#### This week's focus is selecting and implementing a weather API
+#### Focus: Research weather APIs and begin integration
 
 - [ ] Research at least two possible weather APIs
 - [ ] Compare weather APIs and determine which best fits MileMarker
@@ -98,52 +93,47 @@
 - [ ] Connect MileMarker to selected weather API
 - [ ] Retrieve weather data for runs
 - [ ] Display weather information for a run
-- [ ] Add logging and error handling for API requests
 - [ ] Test weather API functionality
+- [ ] Sign up for team project
 - [ ] Update weekly reflection
 
 
-### Week 9 - Authentication and AWS
-#### This week's focus is authentication and preparing the application for deployment
+### Week 9 - RESTful Web Services and Checkpoint 3
+#### Focus: Complete weather API functionality and prepare the deployed application
 
-- [ ] Configure AWS Cognito
-- [ ] Add user sign-up functionality using Cognito
-- [ ] Add user sign-in functionality using Cognito
-- [ ] Add password reset functionality using Cognito
-- [ ] Protect pages that require authentication
-- [ ] Connect authenticated users to their MileMarker data
-- [ ] Create production MySQL database using Amazon RDS
-- [ ] Configure production database connection
-- [ ] Create AWS Elastic Beanstalk environment
-- [ ] Deploy MileMarker to AWS Elastic Beanstalk
-- [ ] Test application with production database
-- [ ] Test authentication in deployed application
+- [ ] Complete weather API functionality 
+- [ ] Display weather information for runs
+- [ ] Test functionality 
+- [ ] Review authentication
+- [ ] Configure production
+- [ ] Deploy updated MileMarker application to AWS
+- [ ] Test application authentication and database connectivity on AWS
+- [ ] Submit Checkpoint 3
 - [ ] Update weekly reflection
 
 
-### Week 10 - Complete MVP and User Interface
-#### This week's focus is completing remaining MVP functionality
+### Week 10 - Dashboard and User Interface
+#### Focus: Improve application appearance and usability
 
-- [ ] Review all MVP user stories
-- [ ] Complete any unfinished MVP functionality
-- [ ] Add Bootstrap styling
-- [ ] Improve homepage/dashboard layout
+- [ ] Add CSS styling (probably Bootstrap styling)
+- [ ] Improve dashboard layout and running summary
+- [ ] Display active goals on the dashboard
 - [ ] Improve Runs page
 - [ ] Improve Goals page
-- [ ] Add navigation between application pages
+- [ ] Style forms, tables, navigation, and buttons
 - [ ] Add form validation where needed
 - [ ] Test application workflow from sign-in through run and goal management
 - [ ] Fix bugs discovered during testing
 - [ ] Update weekly reflection
 
 
-### Week 11 - Testing and Final Improvements
-#### This week's focus is testing and preparing MileMarker for final delivery
+### Week 11 - Testing and MVP Completion
+#### Focus: Complete remaining MVP features and strengthen testing.
 
+- [ ] Review all MVP user stories
 - [ ] Review JUnit test coverage
 - [ ] Add missing unit tests
 - [ ] Verify Log4J2 logging
-- [ ] Remove any System.out statements
 - [ ] Test CRUD functionality
 - [ ] Test one-to-many relationships
 - [ ] Test weather API functionality
@@ -155,16 +145,50 @@
 - [ ] Update weekly reflection
 
 
-### Week 12 - Final Project Preparation
-#### This week's focus is final project review and presentation
+### Week 12 - Team Project Presentations
+#### Focus: Prioritize team project deliverables and maintain MileMarker.
 
-- [ ] Verify all required Enterprise Java project objectives are met
+- [ ] Complete team project deliverables
+- [ ] Complete professional development presentation
+- [ ] Update weekly reflection/time log
+
+### Week 13 - Asynchronous Messaging and Documentation 
+#### Focus: Complete course activities and improve project documentation
+
+- [ ] Review asynchronous messaging concepts
+- [ ] Update MileMarker README
+- [ ] Document application features and technologies
+- [ ] Document database relationships
+- [ ] Review deployment instructions
+- [ ] Update weekly reflection/time log
+
+### Week 14 - Individual Project Code Review 
+#### Focus: Review project quality and incorporate peer feedback 
+
+- [ ] Prepare MileMarker for peer code review
+- [ ] Participate in individual project code review 
+- [ ] Provide peer code review feedback
+- [ ] Review feedback
+- [ ] Update weekly reflection/time log
+
+### Week 15 - Final Testing and Presentation Preparation
+#### Focus: Finalizw the application before presentation week.
+
+- [ ] Verify all project requirements are met
 - [ ] Verify all MVP user stories are complete
-- [ ] Verify MileMarker is deployed and working on AWS
-- [ ] Complete final README/documentation
-- [ ] Prepare final project presentation
-- [ ] Record project demonstration if required
-- [ ] Practice demonstrating MileMarker
-- [ ] Complete final testing
-- [ ] Submit final project
+- [ ] Test full application flow
+- [ ] Verify AWS deployment and production database
+- [ ] Test Cognito authentication in deployed application
+- [ ] Test weather API
+- [ ] Complete final UI improvements
+- [ ] Prepare presentation
+- [ ] Update weekly reflection/time log
+
+### Week 16 - Final Presentation Submission
+#### Focus: Present and submit the completed MileMarker application.
+- [ ] Run final application tests
+- [ ] Verify deployed application is working
+- [ ] Verify GitHub repository is up to date
+- [ ] Complete final presentation
+- [ ] Submit project by December 16 at 9 p.m.
 - [ ] Complete final reflection/time log
