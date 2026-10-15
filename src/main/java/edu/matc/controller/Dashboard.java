@@ -1,6 +1,7 @@
 package edu.matc.controller;
 
 import edu.matc.entity.Goal;
+import edu.matc.entity.GoalProgress;
 import edu.matc.entity.Run;
 import edu.matc.entity.User;
 import edu.matc.persistence.RunDao;
@@ -12,9 +13,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Controller to retrieve the logged in user's miles
@@ -56,23 +56,17 @@ public class Dashboard  extends HttpServlet {
 
         List<Goal> goals = user.getGoals();
 
-        Map<Integer, Double> progressMap = new HashMap<>();
-        Map<Integer, Double> percentMap = new HashMap<>();
+        List<GoalProgress> goalProgressList = new ArrayList<>();
 
         for (Goal goal : goals) {
             double progress = goal.calculateProgress(runs);
-            double percentage = goal.calculatePercentage(progress);
-
-            progressMap.put(goal.getId(), progress);
-            percentMap.put(goal.getId(), percentage);
+            goalProgressList.add(new GoalProgress(goal, progress));
         }
 
         req.setAttribute("totalRuns", totalRuns);
         req.setAttribute("totalDistance", totalDistance);
         req.setAttribute("runs", runs);
-        req.setAttribute("goals", goals);
-        req.setAttribute("progressMap", progressMap);
-        req.setAttribute("percentMap", percentMap);
+        req.setAttribute("goalProgressList", goalProgressList);
         req.setAttribute("recentRuns", recentRuns);
 
         req.getRequestDispatcher("index.jsp").forward(req, resp);
