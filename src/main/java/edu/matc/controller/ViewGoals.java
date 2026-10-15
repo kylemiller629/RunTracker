@@ -1,6 +1,7 @@
 package edu.matc.controller;
 
 import edu.matc.entity.Goal;
+import edu.matc.entity.GoalProgress;
 import edu.matc.entity.Run;
 import edu.matc.entity.User;
 import edu.matc.persistence.UserDao;
@@ -11,9 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Controller for viewing a user's goals
@@ -45,20 +45,14 @@ public class ViewGoals extends HttpServlet {
         List<Goal> goals = user.getGoals();
         List<Run> runs = user.getRuns();
 
-        Map<Integer, Double> progressMap = new HashMap<>();
-        Map<Integer, Double> percentMap = new HashMap<>();
+        List<GoalProgress> goalProgressList = new ArrayList<>();
 
         for (Goal goal : goals) {
             double progress = goal.calculateProgress(runs);
-            double percentage = goal.calculatePercentage(progress);
-
-            progressMap.put(goal.getId(), progress);
-            percentMap.put(goal.getId(), percentage);
+            goalProgressList.add(new GoalProgress(goal, progress));
         }
 
-        request.setAttribute("goals", goals);
-        request.setAttribute("progressMap", progressMap);
-        request.setAttribute("percentMap", percentMap);
+        request.setAttribute("goalProgressList", goalProgressList);
 
         request.getRequestDispatcher("/goals.jsp").forward(request, response);
     }
