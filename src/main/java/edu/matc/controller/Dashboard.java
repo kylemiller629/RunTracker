@@ -4,6 +4,7 @@ package edu.matc.controller;
 import edu.matc.entity.GoalProgress;
 import edu.matc.entity.Run;
 import edu.matc.entity.User;
+import edu.matc.persistence.GenericDao;
 import edu.matc.persistence.UserDao;
 
 import javax.servlet.ServletException;
@@ -32,7 +33,7 @@ public class Dashboard  extends HttpServlet {
         }
 
 
-        UserDao userDao = new UserDao();
+        GenericDao<User> userDao = new GenericDao<>(User.class);
         User user = userDao.getById(userId);
 
         if (user == null) {

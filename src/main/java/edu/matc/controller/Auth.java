@@ -8,6 +8,7 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.matc.auth.*;
 import edu.matc.entity.User;
+import edu.matc.persistence.GenericDao;
 import edu.matc.persistence.UserDao;
 import org.apache.commons.io.*;
 import org.apache.logging.log4j.LogManager;
@@ -37,6 +38,7 @@ import java.security.spec.InvalidKeySpecException;
 import java.security.spec.RSAPublicKeySpec;
 import java.util.Base64;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Properties;
 import java.util.stream.Collectors;
 
@@ -91,8 +93,15 @@ public class Auth extends HttpServlet {
                 TokenResponse tokenResponse = getToken(authRequest);
                 userName = validate(tokenResponse);
 
-                UserDao userDao = new UserDao();
-                User user = userDao.getByUserName(userName);
+                GenericDao<User> userDao = new GenericDao<>(User.class);
+
+                List<User> users = userDao.findByPropertyEqual("userName", userName);
+
+                User user = null;
+
+                if (!users.isEmpty()) {
+                    user = users.get(0);
+                }
 
                 if (user == null) {
                     user = new User("", "", userName);
