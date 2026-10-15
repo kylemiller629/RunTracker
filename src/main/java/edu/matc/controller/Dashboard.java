@@ -61,7 +61,7 @@ public class Dashboard  extends HttpServlet {
 
         for (Goal goal : goals) {
             double progress = goal.calculateProgress(runs);
-            double percentage = goal.calculatePercentage(runs);
+            double percentage = goal.calculatePercentage(progress);
 
             progressMap.put(goal.getId(), progress);
             percentMap.put(goal.getId(), percentage);
