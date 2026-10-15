@@ -1,11 +1,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<c:set var="pageTitle" value="Edit Run" scope="request" />
 
 <html>
-<head>
-    <title>MileMarker - Edit Run</title>
-</head>
+
+<c:import url="head.jsp" />
+
 <body>
   <c:import url="header.jsp" />
   <h1>Edit Run</h1>

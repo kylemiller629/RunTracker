@@ -1,6 +1,5 @@
 
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+
 <header>
     <h1>MileMarker</h1>
 
@@ -13,4 +12,4 @@
         <a href="logIn">Log In</a>
     </nav>
 </header>
-</html>
+

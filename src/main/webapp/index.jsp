@@ -1,9 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="pageTitle" value="Home" scope="request" />
 
 <html>
-<head>
-    <title>MileMarker</title>
-</head>
+
+<c:import url="head.jsp" />
+
 <body>
 
     <c:import url="header.jsp" />
