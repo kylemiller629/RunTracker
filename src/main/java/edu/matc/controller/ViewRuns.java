@@ -31,17 +31,18 @@ public class ViewRuns extends HttpServlet {
             return;
         }
 
-        RunDao runDao = new RunDao();
 
-        List<Run> runs = runDao.getByUserId(userId);
 
         UserDao userDao = new UserDao();
         User user = userDao.getById(userId);
+
 
         if (user == null) {
             response.sendRedirect(request.getContextPath() + "/logIn");
             return;
         }
+
+        List<Run> runs = user.getRuns();
 
         int totalRuns = runs.size();
         double totalDistance = user.calculateTotalDistance();

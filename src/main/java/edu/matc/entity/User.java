@@ -222,6 +222,7 @@ public class User {
      * Gets the progress information for all the users goals
      * @return list of goal progress information
      */
+    @OrderBy("runDate DESC")
     public List<GoalProgress> getGoalProgressList() {
         List<GoalProgress> goalProgressList = new ArrayList<>();
 

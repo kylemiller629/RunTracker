@@ -1,10 +1,9 @@
 package edu.matc.controller;
 
-import edu.matc.entity.Goal;
+
 import edu.matc.entity.GoalProgress;
 import edu.matc.entity.Run;
 import edu.matc.entity.User;
-import edu.matc.persistence.RunDao;
 import edu.matc.persistence.UserDao;
 
 import javax.servlet.ServletException;
@@ -13,7 +12,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -33,14 +31,6 @@ public class Dashboard  extends HttpServlet {
             return;
         }
 
-        RunDao runDao = new RunDao();
-        List<Run> runs = runDao.getByUserId(userId);
-
-        List<Run> recentRuns = runs;
-
-        if (runs.size() > 5) {
-            recentRuns = runs.subList(0, 5);
-        }
 
         UserDao userDao = new UserDao();
         User user = userDao.getById(userId);
@@ -51,10 +41,18 @@ public class Dashboard  extends HttpServlet {
             return;
         }
 
+        List<Run> runs = user.getRuns();
+
+        List<Run> recentRuns = runs;
+
+        if (runs.size() > 5) {
+            recentRuns = runs.subList(0, 5);
+        }
+
+
+
         int totalRuns = runs.size();
         double totalDistance = user.calculateTotalDistance();
-
-        List<Goal> goals = user.getGoals();
 
         List<GoalProgress> goalProgressList = user.getGoalProgressList();
 

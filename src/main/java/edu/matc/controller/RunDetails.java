@@ -2,6 +2,7 @@ package edu.matc.controller;
 
 
 import edu.matc.entity.Run;
+import edu.matc.persistence.GenericDao;
 import edu.matc.persistence.RunDao;
 
 import javax.servlet.ServletException;
@@ -39,7 +40,8 @@ public class RunDetails extends HttpServlet {
             return;
         }
 
-        RunDao runDao = new RunDao();
+        GenericDao<Run> runDao = new GenericDao<>(Run.class);
+
         Run run = runDao.getById(id);
 
         if (run == null || run.getUser() == null || run.getUser().getId() != userId) {
