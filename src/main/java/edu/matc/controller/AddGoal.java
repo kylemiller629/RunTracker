@@ -44,7 +44,7 @@ public class AddGoal  extends HttpServlet {
         goal.setStartDate(LocalDate.parse(startDate));
         goal.setEndDate(LocalDate.parse(endDate));
 
-        UserDao userDao = new UserDao();
+        GenericDao<User> userDao = new GenericDao<>(User.class);
         User user = userDao.getById(userId);
 
         if (user == null) {

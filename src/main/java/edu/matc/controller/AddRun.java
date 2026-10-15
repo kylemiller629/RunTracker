@@ -42,7 +42,7 @@ public class AddRun extends HttpServlet {
         run.setDuration(Integer.parseInt(duration));
         run.setNotes(notes);
 
-        UserDao userDao = new UserDao();
+        GenericDao<User> userDao = new GenericDao<>(User.class);
         User user = userDao.getById(userId);
 
         run.setUser(user);

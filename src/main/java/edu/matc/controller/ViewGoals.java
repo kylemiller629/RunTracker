@@ -4,6 +4,7 @@ import edu.matc.entity.Goal;
 import edu.matc.entity.GoalProgress;
 import edu.matc.entity.Run;
 import edu.matc.entity.User;
+import edu.matc.persistence.GenericDao;
 import edu.matc.persistence.UserDao;
 
 import javax.servlet.ServletException;
@@ -33,7 +34,7 @@ public class ViewGoals extends HttpServlet {
             return;
         }
 
-        UserDao userDao = new UserDao();
+        GenericDao<User> userDao = new GenericDao<>(User.class);
         User user = userDao.getById(userId);
 
         if (user == null) {
@@ -42,8 +43,6 @@ public class ViewGoals extends HttpServlet {
             return;
         }
 
-        List<Goal> goals = user.getGoals();
-        List<Run> runs = user.getRuns();
 
         List<GoalProgress> goalProgressList = user.getGoalProgressList();
 
