@@ -50,14 +50,14 @@
                         <th>Progress</th>
                     </tr>
 
-                    <c:forEach var="goal" items="${goals}">
+                    <c:forEach var="goalProgress" items="${goalProgressList}">
                         <tr>
-                            <td>${goal.goalType}</td>
-                            <td>${goal.target} miles</td>
-                            <td>${progressMap[goal.id]} miles</td>
+                            <td>${goalProgress.goal.goalType}</td>
+                            <td>${goalProgress.goal.target} miles</td>
+                            <td>${goalProgress.progress} miles</td>
                             <td>
-                                <progress value="${percentMap[goal.id]}" max="100"></progress>
-                                ${percentMap[goal.id]}%
+                                <progress value="${goalProgress.percentage}" max="100"></progress>
+                                ${goalProgress.percentage}%
                             </td>
                         </tr>
                     </c:forEach>
