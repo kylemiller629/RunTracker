@@ -2,6 +2,7 @@ package edu.matc.controller;
 
 import edu.matc.entity.Run;
 import edu.matc.entity.User;
+import edu.matc.persistence.GenericDao;
 import edu.matc.persistence.RunDao;
 import edu.matc.persistence.UserDao;
 
@@ -46,7 +47,7 @@ public class AddRun extends HttpServlet {
 
         run.setUser(user);
 
-        RunDao runDao = new RunDao();
+        GenericDao<Run> runDao = new GenericDao<>(Run.class);
         runDao.insert(run);
 
         response.sendRedirect("viewRuns");
