@@ -219,6 +219,20 @@ public class User {
     }
 
     /**
+     * Gets the progress information for all the users goals
+     * @return list of goal progress information
+     */
+    public List<GoalProgress> getGoalProgressList() {
+        List<GoalProgress> goalProgressList = new ArrayList<>();
+
+        for (Goal goal : goals) {
+            double progress = goal.calculateProgress(runs);
+            goalProgressList.add(new GoalProgress(goal, progress));
+        }
+        return goalProgressList;
+    }
+
+    /**
      * Compares this user to another object for equality.
      *
      * @param o object to compare
