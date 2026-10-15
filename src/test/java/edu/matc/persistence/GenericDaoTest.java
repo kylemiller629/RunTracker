@@ -351,6 +351,64 @@ class GenericDaoTest {
 
         assertNull(deletedUser);
 
+    }
 
+    /**
+     * Tests retrieving a goal by ID
+     */
+    @Test
+    void getGoalByIdSuccess() {
+        GenericDao<Goal> goalDao = new GenericDao<>(Goal.class);
+
+        Goal goal = goalDao.getById(1);
+
+        assertNotNull(goal);
+        assertEquals("Weekly Distance", goal.getGoalType());
+        assertEquals(25, goal.getTarget(), 0.01);
+        assertEquals(LocalDate.of(2026, 9, 21), goal.getStartDate());
+        assertEquals(LocalDate.of(2026, 9, 27), goal.getEndDate());
+    }
+
+    /**
+     * Tests updating an existing goal
+     */
+    @Test
+    void updateGoalSuccess() {
+        GenericDao<Goal> goalDao = new GenericDao<>(Goal.class);
+        Goal goal = goalDao.getById(1);
+
+        goal.setTarget(30.0);
+        goalDao.update(goal);
+
+        Goal updatedGoal = goalDao.getById(1);
+        assertNotNull(updatedGoal);
+        assertEquals(30.0, updatedGoal.getTarget(), 0.01);
+    }
+
+    /**
+     * Tests deleting a goal
+     */
+    @Test
+    void deleteGoalSuccess() {
+        GenericDao<Goal> goalDao = new GenericDao<>(Goal.class);
+
+        Goal goalToDelete = goalDao.getById(1);
+        assertNotNull(goalToDelete);
+
+        goalDao.delete(goalToDelete);
+
+        Goal deletedGoal = goalDao.getById(1);
+        assertNull(deletedGoal);
+    }
+
+    /**
+     * Tests retrieving all goals from the database
+     */
+    @Test
+    void getAllGoalsSuccess() {
+        GenericDao<Goal> goalDao = new GenericDao<>(Goal.class);
+        List<Goal> goals = goalDao.getAll();
+        assertNotNull(goals);
+        assertEquals(3, goals.size());
     }
 }
