@@ -1,6 +1,7 @@
 package edu.matc.controller;
 
 import edu.matc.entity.Goal;
+import edu.matc.persistence.GenericDao;
 import edu.matc.persistence.GoalDao;
 
 import javax.servlet.ServletException;
@@ -37,7 +38,7 @@ public class DeleteGoal extends HttpServlet {
             return;
         }
 
-        GoalDao goalDao = new GoalDao();
+        GenericDao<Goal> goalDao = new GenericDao<>(Goal.class);
         Goal goal = goalDao.getById(id);
 
         if  (goal == null || goal.getUser() == null ||  goal.getUser().getId() != userId) {
