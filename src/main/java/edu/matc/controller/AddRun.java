@@ -48,6 +48,7 @@ public class AddRun extends HttpServlet {
         run.setUser(user);
 
         GenericDao<Run> runDao = new GenericDao<>(Run.class);
+
         runDao.insert(run);
 
         response.sendRedirect("viewRuns");
