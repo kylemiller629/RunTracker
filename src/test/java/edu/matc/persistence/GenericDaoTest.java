@@ -1,6 +1,8 @@
 package edu.matc.persistence;
 
+import edu.matc.entity.Goal;
 import edu.matc.entity.Run;
+import edu.matc.entity.User;
 import edu.matc.test.util.Database;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -102,5 +104,61 @@ class GenericDaoTest {
 
         Run deletedRun = runDao.getById(1);
         assertNull(deletedRun);
+    }
+
+    /**
+     * Tests finding an entity by one of its properties.
+     */
+    @Test
+    void findByPropertyEqualSuccess() {
+        List<Run> runs = runDao.findByPropertyEqual("distance", 5.0);
+
+        assertNotNull(runs);
+        assertEquals(1, runs.size());
+        assertEquals(5.0, runs.get(0).getDistance(), 0.01);
+    }
+
+    /**
+     * Tests retrieving a user GenericDao
+     */
+    @Test
+    void getUserByIdSuccess() {
+        GenericDao<User> userDao = new GenericDao<>(User.class);
+
+        User user = userDao.getById(1);
+        assertNotNull(user);
+        assertEquals(1, user.getId());
+    }
+
+    /**
+     * Tests inserting and retrieving a goal using GenericDao
+     */
+    @Test
+    void insertGoalsSuccess() {
+        GenericDao<Goal> goalDao = new GenericDao<>(Goal.class);
+
+        Goal goal = new Goal("Weekly Distance", 20.0, LocalDate.of(2026, 10, 12),LocalDate.of(2026, 10, 18));
+
+        int id = goalDao.insert(goal);
+
+        Goal insertedGoal = goalDao.getById(id);
+        assertNotNull(insertedGoal);
+        assertEquals("Weekly Distance", insertedGoal.getGoalType());
+
+    }
+
+    /**
+     * Tests finding a user by username
+     */
+    @Test
+    void findUserByUserNameSuccess() {
+        GenericDao<User> userDao = new GenericDao<>(User.class);
+
+        User user = userDao.getById(1);
+
+        List<User> users = userDao.findByPropertyEqual("userName", user.getUserName());
+
+        assertEquals(1, users.size());
+        assertEquals(user.getId(), users.get(0).getId());
     }
 }
