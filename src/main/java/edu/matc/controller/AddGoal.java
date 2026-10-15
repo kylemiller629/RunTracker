@@ -1,6 +1,7 @@
 package edu.matc.controller;
 
 import edu.matc.entity.User;
+import edu.matc.persistence.GenericDao;
 import edu.matc.persistence.UserDao;
 import edu.matc.entity.Goal;
 import edu.matc.persistence.GoalDao;
@@ -54,7 +55,8 @@ public class AddGoal  extends HttpServlet {
 
         goal.setUser(user);
 
-        GoalDao goalDao = new GoalDao();
+        GenericDao<Goal> goalDao = new GenericDao<>(Goal.class);
+
         goalDao.insert(goal);
 
         response.sendRedirect("viewGoals");
