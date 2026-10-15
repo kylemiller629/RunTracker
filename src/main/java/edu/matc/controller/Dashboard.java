@@ -56,12 +56,7 @@ public class Dashboard  extends HttpServlet {
 
         List<Goal> goals = user.getGoals();
 
-        List<GoalProgress> goalProgressList = new ArrayList<>();
-
-        for (Goal goal : goals) {
-            double progress = goal.calculateProgress(runs);
-            goalProgressList.add(new GoalProgress(goal, progress));
-        }
+        List<GoalProgress> goalProgressList = user.getGoalProgressList();
 
         req.setAttribute("totalRuns", totalRuns);
         req.setAttribute("totalDistance", totalDistance);

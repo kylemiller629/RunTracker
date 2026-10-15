@@ -45,12 +45,7 @@ public class ViewGoals extends HttpServlet {
         List<Goal> goals = user.getGoals();
         List<Run> runs = user.getRuns();
 
-        List<GoalProgress> goalProgressList = new ArrayList<>();
-
-        for (Goal goal : goals) {
-            double progress = goal.calculateProgress(runs);
-            goalProgressList.add(new GoalProgress(goal, progress));
-        }
+        List<GoalProgress> goalProgressList = user.getGoalProgressList();
 
         request.setAttribute("goalProgressList", goalProgressList);
 
