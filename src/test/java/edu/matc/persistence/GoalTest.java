@@ -56,7 +56,8 @@ public class GoalTest {
         runs.add(run1);
         runs.add(run2);
 
-        double actual = goal.calculatePercentage(runs);
+        double progress = goal.calculateProgress(runs);
+        double actual = goal.calculatePercentage(progress);
 
         assertEquals(50.0, actual, 0.001);
     }
