@@ -24,6 +24,7 @@ public class Dashboard  extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         Integer userId = (Integer)req.getSession().getAttribute("userId");
 
         if (userId == null){
@@ -42,16 +43,6 @@ public class Dashboard  extends HttpServlet {
         }
 
         req.setAttribute("user", user);
-
-        List<Run> runs = user.getRuns();
-
-        List<Run> recentRuns = runs;
-
-        if (runs.size() > 5) {
-            recentRuns = runs.subList(0, 5);
-        }
-
-        req.setAttribute("recentRuns", recentRuns);
 
         req.getRequestDispatcher("index.jsp").forward(req, resp);
     }

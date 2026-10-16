@@ -226,6 +226,11 @@ public class User {
         return calculateTotalDistance();
     }
 
+    /**
+     * Gets the user's five most recent runs
+     *
+     * @return list of recent runs
+     */
     public List<Run> getRecentRuns() {
         if (runs.size() > 5) {
             return runs.subList(0, 5);
