@@ -1,8 +1,5 @@
 package edu.matc.controller;
 
-
-import edu.matc.entity.GoalProgress;
-import edu.matc.entity.Run;
 import edu.matc.entity.User;
 import edu.matc.persistence.GenericDao;
 
@@ -12,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 /**
  * Controller to retrieve the logged in user's miles

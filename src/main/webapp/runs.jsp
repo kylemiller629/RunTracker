@@ -12,8 +12,8 @@
 
     <h2>Running Summary</h2>
 
-    <p>Total Runs: ${totalRuns}</p>
-    <p>Total Distance: ${totalDistance}</p>
+    <p>Total Runs: ${user.runs.size()}</p>
+    <p>Total Distance: ${user.totalDistance}</p>
 
         <table>
             <tr>
@@ -25,7 +25,7 @@
                 <th>Actions</th>
             </tr>
 
-            <c:forEach var="run" items="${runs}">
+            <c:forEach var="run" items="${user.runs}">
                 <tr>
                     <td>${run.runDate}</td>
                     <td>${run.distance}</td>
