@@ -177,7 +177,9 @@ public class User {
      * @return the goals
      */
     public List<Goal> getGoals() {
+
         return goals;
+
     }
 
     /**
@@ -185,7 +187,9 @@ public class User {
      * @param goals the goals
      */
     public void setGoals(List<Goal> goals) {
+
         this.goals = goals;
+
     }
 
     /**
@@ -224,7 +228,9 @@ public class User {
      * @return total distance in miles
      */
     public double getTotalDistance() {
+
         return calculateTotalDistance();
+
     }
 
     /**
