@@ -41,9 +41,7 @@ public class ViewGoals extends HttpServlet {
         }
 
 
-        List<GoalProgress> goalProgressList = user.getGoalProgressList();
-
-        request.setAttribute("goalProgressList", goalProgressList);
+        request.setAttribute("user", user);
 
         request.getRequestDispatcher("/goals.jsp").forward(request, response);
     }

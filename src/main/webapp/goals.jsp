@@ -21,7 +21,7 @@
             <th>Action</th>
         </tr>
 
-        <c:forEach var="goalProgress" items="${goalProgressList}">
+        <c:forEach var="goalProgress" items="${user.goalProgressList}">
             <tr>
                 <td>${goalProgress.goal.goalType}</td>
                 <td>${goalProgress.goal.target}</td>
