@@ -6,6 +6,11 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Represents a goal entity
+ *
+ * @author kmiller
+ */
 @Entity
 @Table(name = "goal")
 public class Goal {
@@ -52,60 +57,112 @@ public class Goal {
         this.endDate = endDate;
     }
 
+    /**
+     * Getter for id
+     * @return goal ID
+     */
     public int getId() {
 
         return id;
     }
 
+    /**
+     *  Setter for ID
+     * @param id goal id
+     */
     public void setId(int id) {
 
         this.id = id;
     }
 
+    /**
+     * Getter for goal type
+     * @return goal type
+     */
     public String getGoalType() {
 
         return goalType;
     }
 
+    /**
+     * Setter for goal type
+     * @param goalType type of goal
+     */
     public void setGoalType(String goalType) {
+
         this.goalType = goalType;
+
     }
 
+    /**
+     * Getter for target goal
+     * @return target goal
+     */
     public double getTarget() {
 
         return target;
+
     }
 
+    /**
+     * Setter for goal targer
+     * @param target for the goal
+     */
     public void setTarget(double target) {
 
         this.target = target;
     }
 
+    /**
+     * Getter for start date
+     * @return start date for the goal
+     */
     public LocalDate getStartDate() {
 
         return startDate;
     }
 
+    /**
+     * Setter for start date
+     * @param startDate start date for the goal
+     */
     public void setStartDate(LocalDate startDate) {
 
         this.startDate = startDate;
+
     }
 
+    /**
+     * Getter for end date
+     * @return end date for the goal
+     */
     public LocalDate getEndDate() {
 
         return endDate;
     }
 
+    /**
+     * setter for goal end date
+     * @param endDate for goal
+     */
     public void setEndDate(LocalDate endDate) {
 
         this.endDate = endDate;
     }
 
+    /**
+     * Getter for user
+     * @return user
+     */
     public User getUser() {
 
         return user;
     }
 
+    /**
+     * Sets the user
+     * @param user user
+     */
     public void setUser(User user) {
 
         this.user = user;
