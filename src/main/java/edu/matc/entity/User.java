@@ -219,11 +219,18 @@ public class User {
     }
 
     /**
-     * Get's the user's total running distance
+     * Gets the user's total running distance
      * @return total distance in miles
      */
     public double getTotalDistance() {
         return calculateTotalDistance();
+    }
+
+    public List<Run> getRecentRuns() {
+        if (runs.size() > 5) {
+            return runs.subList(0, 5);
+        }
+        return runs;
     }
 
     /**

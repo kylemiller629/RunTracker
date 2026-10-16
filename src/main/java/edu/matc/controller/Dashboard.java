@@ -51,15 +51,6 @@ public class Dashboard  extends HttpServlet {
             recentRuns = runs.subList(0, 5);
         }
 
-
-
-        int totalRuns = runs.size();
-
-        List<GoalProgress> goalProgressList = user.getGoalProgressList();
-
-        req.setAttribute("totalRuns", totalRuns);
-        req.setAttribute("runs", runs);
-        req.setAttribute("goalProgressList", goalProgressList);
         req.setAttribute("recentRuns", recentRuns);
 
         req.getRequestDispatcher("index.jsp").forward(req, resp);
