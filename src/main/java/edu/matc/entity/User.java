@@ -34,6 +34,7 @@ public class User {
             orphanRemoval = true,
             fetch = FetchType.EAGER
     )
+    @OrderBy("runDate DESC")
     private List<Run> runs = new ArrayList<>();
 
     @OneToMany(
@@ -242,7 +243,6 @@ public class User {
      * Gets the progress information for all the users goals
      * @return list of goal progress information
      */
-    @OrderBy("runDate DESC")
     public List<GoalProgress> getGoalProgressList() {
         List<GoalProgress> goalProgressList = new ArrayList<>();
 
