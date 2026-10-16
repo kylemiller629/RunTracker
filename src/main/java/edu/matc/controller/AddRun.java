@@ -44,7 +44,12 @@ public class AddRun extends HttpServlet {
         GenericDao<User> userDao = new GenericDao<>(User.class);
         User user = userDao.getById(userId);
 
-        run.setUser(user);
+        if (user == null) {
+            response.sendRedirect(request.getContextPath()+"/logIn");
+            return;
+        }
+
+        user.addRun(run);
 
         GenericDao<Run> runDao = new GenericDao<>(Run.class);
 
