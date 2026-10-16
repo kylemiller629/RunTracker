@@ -3,7 +3,6 @@ package edu.matc.controller;
 
 import edu.matc.entity.Run;
 import edu.matc.persistence.GenericDao;
-import edu.matc.persistence.RunDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

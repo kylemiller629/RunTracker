@@ -16,8 +16,8 @@
         <c:if test="${not empty sessionScope.userId}">
             <h3>Running Summary</h3>
 
-            <p>Total Runs: ${totalRuns}</p>
-            <p>Total Distance: ${totalDistance} miles</p>
+            <p>Total Runs: ${user.runs.size()}</p>
+            <p>Total Distance: ${user.totalDistance} miles</p>
 
             <h3>Recent Runs</h3>
 
@@ -50,7 +50,7 @@
                         <th>Progress</th>
                     </tr>
 
-                    <c:forEach var="goalProgress" items="${goalProgressList}">
+                    <c:forEach var="goalProgress" items="${user.goalProgressList}">
                         <tr>
                             <td>${goalProgress.goal.goalType}</td>
                             <td>${goalProgress.goal.target} miles</td>

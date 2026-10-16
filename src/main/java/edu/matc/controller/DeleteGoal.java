@@ -2,7 +2,6 @@ package edu.matc.controller;
 
 import edu.matc.entity.Goal;
 import edu.matc.persistence.GenericDao;
-import edu.matc.persistence.GoalDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
