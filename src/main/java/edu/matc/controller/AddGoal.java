@@ -51,7 +51,7 @@ public class AddGoal  extends HttpServlet {
             return;
         }
 
-        goal.setUser(user);
+        user.addGoal(goal);
 
         GenericDao<Goal> goalDao = new GenericDao<>(Goal.class);
 
