@@ -1,11 +1,8 @@
 package edu.matc.controller;
 
-import edu.matc.entity.Goal;
 import edu.matc.entity.GoalProgress;
-import edu.matc.entity.Run;
 import edu.matc.entity.User;
 import edu.matc.persistence.GenericDao;
-import edu.matc.persistence.UserDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

@@ -9,7 +9,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.matc.auth.*;
 import edu.matc.entity.User;
 import edu.matc.persistence.GenericDao;
-import edu.matc.persistence.UserDao;
 import org.apache.commons.io.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

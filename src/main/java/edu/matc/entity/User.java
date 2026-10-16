@@ -219,6 +219,14 @@ public class User {
     }
 
     /**
+     * Get's the user's total running distance
+     * @return total distance in miles
+     */
+    public double getTotalDistance() {
+        return calculateTotalDistance();
+    }
+
+    /**
      * Gets the progress information for all the users goals
      * @return list of goal progress information
      */

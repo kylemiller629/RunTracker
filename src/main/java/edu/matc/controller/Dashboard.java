@@ -5,7 +5,6 @@ import edu.matc.entity.GoalProgress;
 import edu.matc.entity.Run;
 import edu.matc.entity.User;
 import edu.matc.persistence.GenericDao;
-import edu.matc.persistence.UserDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,6 +41,8 @@ public class Dashboard  extends HttpServlet {
             return;
         }
 
+        req.setAttribute("user", user);
+
         List<Run> runs = user.getRuns();
 
         List<Run> recentRuns = runs;
@@ -53,12 +54,10 @@ public class Dashboard  extends HttpServlet {
 
 
         int totalRuns = runs.size();
-        double totalDistance = user.calculateTotalDistance();
 
         List<GoalProgress> goalProgressList = user.getGoalProgressList();
 
         req.setAttribute("totalRuns", totalRuns);
-        req.setAttribute("totalDistance", totalDistance);
         req.setAttribute("runs", runs);
         req.setAttribute("goalProgressList", goalProgressList);
         req.setAttribute("recentRuns", recentRuns);
