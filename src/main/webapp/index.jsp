@@ -30,7 +30,7 @@
                     <th>Notes</th>
                 </tr>
 
-                <c:forEach var="run" items="${recentRuns}">
+                <c:forEach var="run" items="${user.recentRuns}">
                     <tr>
                         <td>${run.runDate}</td>
                         <td>${run.distance}</td>
