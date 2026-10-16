@@ -27,14 +27,14 @@
                 <td>${goalProgress.goal.target}</td>
                 <td>${goalProgress.goal.startDate}</td>
                 <td>${goalProgress.goal.endDate}</td>
-                <td>${progressMap[goal.id]} miles</td>
+                <td>${goalProgress.progress} miles</td>
                 <td>
                     <progress value="${goalProgress.percentage}" max="100"></progress>
                     ${goalProgress.percentage}%
                 </td>
                 <td><a href="editGoal?id=${goalProgress.goal.id}">Edit</a>
                     <form action="deleteGoal" method="post" onsubmit="return confirm('Are you sure you want to delete?');">
-                        <input type="hidden" name="id" value="${goal.id}">
+                        <input type="hidden" name="id" value="${goalProgress.goal.id}">
                         <button type="submit">Delete</button>
                     </form>
                 </td>
@@ -43,6 +43,6 @@
     </table>
 
     <a href="addGoal.jsp">Add Another Goal</a>
-    <a href="home">Back to Home</a>
+    <a href="dashboard">Back to Home</a>
 </body>
 </html>
