@@ -35,7 +35,9 @@ public class GoalProgress {
      * @return goal
      */
     public Goal getGoal() {
+
         return goal;
+
     }
 
     /**
@@ -43,7 +45,9 @@ public class GoalProgress {
      * @return progress
      */
     public double getProgress() {
+
         return progress;
+
     }
 
     /**
@@ -51,6 +55,8 @@ public class GoalProgress {
      * @return percentage
      */
     public double getPercentage() {
+
         return percentage;
+
     }
 }
