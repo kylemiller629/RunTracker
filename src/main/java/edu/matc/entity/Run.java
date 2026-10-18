@@ -58,7 +58,9 @@ public class Run {
      * @return run duration
      */
     public int getDuration() {
+
         return duration;
+
     }
 
     /**
@@ -66,7 +68,9 @@ public class Run {
      * @param duration duration of run
      */
     public void setDuration(int duration) {
+
         this.duration = duration;
+
     }
 
     /**
@@ -74,7 +78,9 @@ public class Run {
      * @return run notes
      */
     public String getNotes() {
+
         return notes;
+
     }
 
     /**
@@ -82,7 +88,9 @@ public class Run {
      * @param notes run notes
      */
     public void setNotes(String notes) {
+
         this.notes = notes;
+
     }
 
     /**
@@ -145,6 +153,7 @@ public class Run {
      * @return user
      */
     public User getUser() {
+
         return user;
     }
 
@@ -153,7 +162,9 @@ public class Run {
      * @param user user
      */
     public void setUser(User user) {
+
         this.user = user;
+
     }
 
     /**

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Controller to retrieve the logged in user's miles
+ * Controller to retrieve the logged in user's display information
  *
  * @author kmiller
  */
