@@ -13,6 +13,13 @@
         <h2>Welcome to MileMarker, ${sessionScope.userName}!</h2>
         <p>Track your miles! Reach your goals!</p>
 
+        <c:if test="${not empty weather}">
+            <h3>Current Weather - Madison WI</h3>
+
+            <p>Temperature: ${weather.current.temperature2m} F</p>
+            <p>Wind Speed: ${weather.current.windSpeed10m} mph</p>
+        </c:if>
+
         <c:if test="${not empty sessionScope.userId}">
             <h3>Running Summary</h3>
 
