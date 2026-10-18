@@ -1,7 +1,11 @@
 package edu.matc.controller;
 
 import edu.matc.entity.User;
+import edu.matc.entity.Weather;
 import edu.matc.persistence.GenericDao;
+import edu.matc.persistence.WeatherDao;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.core.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,6 +25,8 @@ public class Dashboard  extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        private final Logger logger = LogManager.getLogger(this.getClass());
+
         Integer userId = (Integer)req.getSession().getAttribute("userId");
 
         if (userId == null){
@@ -39,6 +45,15 @@ public class Dashboard  extends HttpServlet {
         }
 
         req.setAttribute("user", user);
+
+        WeatherDao weatherDao = new WeatherDao();
+
+        try {
+            Weather weather = weatherDao.getWeather();
+            req.setAttribute("weather", weather);
+        } catch (Exception e) {
+            logger.error("unable to retieve weather data", e);
+        }
 
         req.getRequestDispatcher("index.jsp").forward(req, resp);
     }

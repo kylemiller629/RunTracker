@@ -4,15 +4,19 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.matc.entity.Weather;
 import edu.matc.util.PropertiesLoader;
+import org.apache.logging.log4j.LogManager;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import java.util.Properties;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class WeatherDao  implements PropertiesLoader {
+
+    private final Logger logger = LogManager.getLogger(this.getClass().getName());
 
     public Weather getWeather() throws Exception {
 
@@ -35,7 +39,7 @@ public class WeatherDao  implements PropertiesLoader {
             weather = mapper.readValue(response, Weather.class);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
-            // TODO set up logging
+            logger.error("Error converting weather JSON to Weather object", e);
         }
 
         return weather;

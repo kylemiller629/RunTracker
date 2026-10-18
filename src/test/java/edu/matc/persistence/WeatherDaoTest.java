@@ -29,7 +29,7 @@ class WeatherDaoTest {
         // verify units are returned by the API
         assertNotNull(weather.getCurrent());
         assertEquals("°F", weather.getCurrentUnits().getTemperature2m());
-        assertEquals("mph", weather.getCurrentUnits().getWindSpeed10m());
+        assertEquals("mp/h", weather.getCurrentUnits().getWindSpeed10m());
 
     }
 }
