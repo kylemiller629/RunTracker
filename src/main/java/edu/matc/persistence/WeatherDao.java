@@ -18,32 +18,39 @@ public class WeatherDao  implements PropertiesLoader {
 
     private final Logger logger = LogManager.getLogger(this.getClass().getName());
 
-    public Weather getWeather() throws Exception {
+    public Weather getWeather(double latitude, double longitude) throws Exception {
 
         Properties properties  = loadProperties("/weather.properties");
-
         String url = properties.getProperty("weather.api.url");
 
         Client client = ClientBuilder.newClient();
 
-        WebTarget target = client.target(url);
-
-        String response = target.request(MediaType.APPLICATION_JSON)
-                .get(String.class);
-
-        ObjectMapper mapper = new ObjectMapper();
-
-        Weather weather = null;
 
         try {
-            logger.info("Attempting to fetch weather data");
-            weather = mapper.readValue(response, Weather.class);
-            logger.info("Successfully fetched weather data" + weather);
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-            logger.error("Error converting weather JSON to Weather object", e);
+            WebTarget target = client.target(url)
+                    .queryParam("latitude", latitude)
+                    .queryParam("longitude", longitude)
+                    .queryParam("current", "temperature_2m,wind_speed_10m")
+                    .queryParam("temperature_unit", "fahrenheit")
+                    .queryParam("wind_speed_unit", "mph");
+
+            logger.info("attempting to fetch weather data");
+
+            String response = target.request(MediaType.APPLICATION_JSON)
+                            .get(String.class);
+
+            ObjectMapper mapper = new ObjectMapper();
+            Weather weather = mapper.readValue(response, Weather.class);
+
+            logger.info("successfully fetched weather data");
+
+            return weather;
+
+        } catch (Exception e) {
+            logger.error("Error retrieving weather", e);
+        } finally {
+            client.close();
         }
 
-        return weather;
     }
 }
