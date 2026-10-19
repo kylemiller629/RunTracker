@@ -36,7 +36,9 @@ public class WeatherDao  implements PropertiesLoader {
         Weather weather = null;
 
         try {
+            logger.info("Attempting to fetch weather data");
             weather = mapper.readValue(response, Weather.class);
+            logger.info("Successfully fetched weather data" + weather);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
             logger.error("Error converting weather JSON to Weather object", e);
