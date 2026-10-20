@@ -1,6 +1,5 @@
 package edu.matc.persistence;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.matc.entity.Weather;
 import edu.matc.util.PropertiesLoader;
@@ -11,7 +10,6 @@ import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import java.util.Properties;
-import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class WeatherDao  implements PropertiesLoader {
@@ -48,6 +46,7 @@ public class WeatherDao  implements PropertiesLoader {
 
         } catch (Exception e) {
             logger.error("Error retrieving weather", e);
+            throw new Exception(e);
         } finally {
             client.close();
         }
