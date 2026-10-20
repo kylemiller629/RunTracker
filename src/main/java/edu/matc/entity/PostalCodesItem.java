@@ -106,7 +106,7 @@ public class PostalCodesItem{
 		return placeName;
 	}
 
-	public void setLat(Object lat){
+	public void setLat(double lat){
 		this.lat = lat;
 	}
 

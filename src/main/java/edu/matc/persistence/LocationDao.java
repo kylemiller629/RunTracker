@@ -1,4 +1,56 @@
 package edu.matc.persistence;
 
-public class LocationDao {
+import com.fasterxml.jackson.databind.ObjectMapper;
+import edu.matc.entity.Response;
+import edu.matc.util.PropertiesLoader;
+
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
+import java.util.Properties;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+
+public class LocationDao implements PropertiesLoader {
+
+    private final Logger logger = LogManager.getLogger(this.getClass());
+
+    Response getLocation(String zipCode) throws Exception {
+
+        Properties properties = loadProperties("/geonames.properties");
+
+        String url = properties.getProperty("geonames.api.url");
+        String username = properties.getProperty("geonames.api.username");
+
+        Client client = ClientBuilder.newClient();
+
+        try {
+            WebTarget target = client.target(url)
+                    .queryParam("postalcode", zipCode)
+                    .queryParam("country", "US")
+                    .queryParam("username", username);
+
+            logger.info("Attempting to retrieve location for ZIP: " + zipCode);
+
+            String response = target.request(MediaType.APPLICATION_JSON_TYPE).get(String.class);
+
+            ObjectMapper mapper = new ObjectMapper();
+
+            Response location = mapper.readValue(response, Response.class);
+
+            logger.info("Succesffuly retrieved location");
+
+            return location;
+
+        } catch (Exception e) {
+            logger.error("Error occured while retrieving location for ZIP: " + zipCode, e);
+            throw e;
+        } finally {
+            client.close();
+        }
+    }
+
 }
