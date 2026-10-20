@@ -48,11 +48,12 @@ public class Dashboard  extends HttpServlet {
 
         req.setAttribute("user", user);
 
+        String zipCode = req.getParameter("zipCode");
         LocationDao locationDao = new LocationDao();
         WeatherDao weatherDao = new WeatherDao();
 
         try {
-            Response locationResponse = locationDao.getLocation("54166");
+            Response locationResponse = locationDao.getLocation(zipCode);
 
             if (locationResponse.getPostalCodes() != null && !locationResponse.getPostalCodes().isEmpty()) {
 
