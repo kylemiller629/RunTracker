@@ -48,7 +48,7 @@ public class Dashboard  extends HttpServlet {
         WeatherDao weatherDao = new WeatherDao();
 
         try {
-            Weather weather = weatherDao.getWeather();
+            Weather weather = weatherDao.getWeather(43.07, -89.40);
             req.setAttribute("weather", weather);
         } catch (Exception e) {
             logger.error("unable to retrieve weather data", e);

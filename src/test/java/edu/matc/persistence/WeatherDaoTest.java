@@ -10,7 +10,7 @@ class WeatherDaoTest {
     @Test
     void getWeatherSuccess()  throws Exception {
         WeatherDao dao = new WeatherDao();
-        Weather weather = dao.getWeather();
+        Weather weather = dao.getWeather(43.07, -89.40);
 
         assertNotNull(weather);
         assertNotNull(weather.getCurrent());

@@ -23,7 +23,7 @@ public class LocationDao implements PropertiesLoader {
         Properties properties = loadProperties("/geonames.properties");
 
         String url = properties.getProperty("geonames.api.url");
-        String username = properties.getProperty("geonames.api.username");
+        String username = properties.getProperty("geonames.username");
 
         Client client = ClientBuilder.newClient();
 
