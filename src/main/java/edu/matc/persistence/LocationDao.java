@@ -18,7 +18,7 @@ public class LocationDao implements PropertiesLoader {
 
     private final Logger logger = LogManager.getLogger(this.getClass());
 
-    Response getLocation(String zipCode) throws Exception {
+    public Response getLocation(String zipCode) throws Exception {
 
         Properties properties = loadProperties("/geonames.properties");
 

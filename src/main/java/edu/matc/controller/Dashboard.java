@@ -1,5 +1,8 @@
 package edu.matc.controller;
 
+import edu.matc.entity.Response;
+import edu.matc.entity.PostalCodesItem;
+import edu.matc.persistence.LocationDao;
 import edu.matc.entity.User;
 import edu.matc.entity.Weather;
 import edu.matc.persistence.GenericDao;
@@ -45,11 +48,25 @@ public class Dashboard  extends HttpServlet {
 
         req.setAttribute("user", user);
 
+        LocationDao locationDao = new LocationDao();
         WeatherDao weatherDao = new WeatherDao();
 
         try {
-            Weather weather = weatherDao.getWeather(43.07, -89.40);
-            req.setAttribute("weather", weather);
+            Response locationResponse = locationDao.getLocation("54166");
+
+            if (locationResponse.getPostalCodes() != null && !locationResponse.getPostalCodes().isEmpty()) {
+
+                PostalCodesItem location = locationResponse.getPostalCodes().get(0);
+
+                double latitude = location.getLat();
+                double longitude = location.getLng();
+
+                Weather weather = weatherDao.getWeather(latitude, longitude);
+                req.setAttribute("weather", weather);
+                req.setAttribute("location", location);
+
+
+            }
         } catch (Exception e) {
             logger.error("unable to retrieve weather data", e);
         }
