@@ -38,5 +38,6 @@ build/
 ### Mac OS ###
 .DS_Store
 
-# Sensitive resource files
+# Ignore resource files
 /src/main/resources/
+/src/test/resources/
