@@ -13,7 +13,11 @@ import java.util.Properties;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-
+/**
+ * Controller that retrieves a location based from a zip and returns its latitude and longitude
+ *
+ * @author kmiller
+ */
 public class LocationDao implements PropertiesLoader {
 
     private final Logger logger = LogManager.getLogger(this.getClass());

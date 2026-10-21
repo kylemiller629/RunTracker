@@ -12,6 +12,11 @@ import javax.ws.rs.core.MediaType;
 import java.util.Properties;
 import org.apache.logging.log4j.Logger;
 
+/**
+ * Controller that gets weather based on latitude and longitude
+ *
+ * @author kmiller
+ */
 public class WeatherDao  implements PropertiesLoader {
 
     private final Logger logger = LogManager.getLogger(this.getClass().getName());

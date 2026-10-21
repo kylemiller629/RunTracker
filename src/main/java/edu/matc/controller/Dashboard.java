@@ -63,6 +63,7 @@ public class Dashboard  extends HttpServlet {
                 double longitude = location.getLng();
 
                 Weather weather = weatherDao.getWeather(latitude, longitude);
+
                 req.setAttribute("weather", weather);
                 req.setAttribute("location", location);
 
