@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="pageTitle" value="Home" scope="request" />
 
@@ -13,20 +14,27 @@
         <h2>Welcome to MileMarker, ${sessionScope.userName}!</h2>
         <p>Track your miles! Reach your goals!</p>
 
-        <h3>Check Weather</h3>
+        <c:if test="${not empty sessionScope.userId}">
+            <h3>Check Weather</h3>
 
-        <form action="${pageContext.request.contextPath}/dashboard" method="get">
-            <label for="zipCode">Enter ZIP Code:</label>
-            <input type="text" id="zipCode" name="zipCode"
-                   placeholder="Enter ZIP code" maxlength="5"
-                   pattern="[0-9]{5}" required>
-            <button type="submit">Get Weather</button>
-        </form>
-        <c:if test="${not empty weather}">
-            <h3>Current Weather - ${location.placeName}, ${location.adminCode1}</h3>
+            <form action="${pageContext.request.contextPath}/dashboard" method="get">
+                <label for="zipCode">Enter ZIP Code:</label>
+                <input type="text" id="zipCode" name="zipCode"
+                       placeholder="Enter ZIP code" maxlength="5"
+                       pattern="[0-9]{5}" required>
+                <button type="submit">Get Weather</button>
+            </form>
 
-            <p>Temperature: ${weather.current.temperature2m} F</p>
-            <p>Wind Speed: ${weather.current.windSpeed10m} mph</p>
+            <c:if test="${not empty weatherError}">
+                <p>${weatherError}</p>
+            </c:if>
+
+            <c:if test="${not empty weather}">
+                <h3>Current Weather - ${location.placeName}, ${location.adminCode1}</h3>
+                <p>Temperature: ${weather.current.temperature2m} °F</p>
+                <p>Wind Speed: ${weather.current.windSpeed10m} mph</p>
+            </c:if>
+
         </c:if>
 
         <c:if test="${not empty sessionScope.userId}">
