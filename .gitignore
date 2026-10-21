@@ -38,6 +38,8 @@ build/
 ### Mac OS ###
 .DS_Store
 
-# Ignore resource files
-/src/main/resources/
-/src/test/resources/
+# Ignore sensitive properties files
+**/*.properties
+
+# Ignore Hibernate configuration files containing credentials
+**/hibernate.cfg.xml
