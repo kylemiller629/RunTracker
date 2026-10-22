@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Properties;
 
 /**
  * Controller to retrieve the logged in user's display information
@@ -49,8 +50,17 @@ public class Dashboard  extends HttpServlet {
         req.setAttribute("user", user);
 
         String zipCode = req.getParameter("zipCode");
-        LocationDao locationDao = new LocationDao();
-        WeatherDao weatherDao = new WeatherDao();
+
+        Properties locationProperties = (Properties)req.getServletContext().getAttribute("geonamesProperties");
+
+        Properties weatherProperties = (Properties)req.getServletContext().getAttribute("weatherProperties");
+
+        LocationDao locationDao = new LocationDao(
+                locationProperties.getProperty("geonames.api.url"),
+                locationProperties.getProperty("geonames.username")
+        );
+
+        WeatherDao weatherDao = new WeatherDao(weatherProperties.getProperty("weather.api.url"));
 
         try {
             Response locationResponse = locationDao.getLocation(zipCode);
