@@ -1,5 +1,6 @@
 package edu.matc.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import edu.matc.entity.Response;
 import edu.matc.entity.PostalCodesItem;
 import edu.matc.persistence.LocationDao;
@@ -14,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.WebApplicationException;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -78,9 +80,20 @@ public class Dashboard  extends HttpServlet {
                 req.setAttribute("location", location);
 
 
+            } else {
+                req.setAttribute("weatherError", "No location found for that ZIP code.");
             }
+        } catch (WebApplicationException e) {
+            logger.error("Weather service HTTP error", e);
+            req.setAttribute("weatherError", "The weather service is currently unavailable. Please try again later.");
+
+        } catch (JsonProcessingException e) {
+            logger.error("Error processing weather API response", e);
+            req.setAttribute("weatherError", "Unable to process weather information right now.");
+
         } catch (Exception e) {
-            logger.error("unable to retrieve weather data", e);
+            logger.error("Unable to retrieve weather", e);
+            req.setAttribute("weatherError", "Unable to retrieve weather right now. Please try again later.");
         }
 
         req.getRequestDispatcher("index.jsp").forward(req, resp);
