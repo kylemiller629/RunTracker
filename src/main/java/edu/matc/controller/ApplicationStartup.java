@@ -29,8 +29,13 @@ public class ApplicationStartup extends HttpServlet implements PropertiesLoader 
 
         try {
             Properties properties = loadProperties("/cognito.properties");
-
             context.setAttribute("cognitoProperties", properties);
+
+            Properties weatherProperties = loadProperties("/weather.properties");
+            context.setAttribute("weatherProperties", weatherProperties);
+
+            Properties geonamesProperties = loadProperties("/geonames.properties");
+            context.setAttribute("geonamesProperties", geonamesProperties);
         } catch (Exception e) {
             throw new ServletException(e);
         }
