@@ -17,14 +17,18 @@ import org.apache.logging.log4j.Logger;
  *
  * @author kmiller
  */
-public class WeatherDao  implements PropertiesLoader {
+public class WeatherDao {
 
     private final Logger logger = LogManager.getLogger(this.getClass().getName());
 
+    private String url;
+
+    public WeatherDao(String url) {
+        this.url = url;
+    }
+
     public Weather getWeather(double latitude, double longitude) throws Exception {
 
-        Properties properties  = loadProperties("/weather.properties");
-        String url = properties.getProperty("weather.api.url");
 
         Client client = ClientBuilder.newClient();
 

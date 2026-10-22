@@ -18,16 +18,19 @@ import org.apache.logging.log4j.Logger;
  *
  * @author kmiller
  */
-public class LocationDao implements PropertiesLoader {
+public class LocationDao {
 
     private final Logger logger = LogManager.getLogger(this.getClass());
 
+    private String url;
+    private String username;
+
+    public LocationDao(String url, String username) {
+
+    }
+
     public Response getLocation(String zipCode) throws Exception {
 
-        Properties properties = loadProperties("/geonames.properties");
-
-        String url = properties.getProperty("geonames.api.url");
-        String username = properties.getProperty("geonames.username");
 
         Client client = ClientBuilder.newClient();
 
