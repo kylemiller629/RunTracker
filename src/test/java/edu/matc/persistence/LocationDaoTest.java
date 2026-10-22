@@ -2,6 +2,8 @@ package edu.matc.persistence;
 
 import edu.matc.entity.PostalCodesItem;
 import edu.matc.entity.Response;
+import edu.matc.util.PropertiesLoader;
+import java.util.Properties;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -10,7 +12,13 @@ class LocationDaoTest {
 
     @Test
     void getLocation() throws Exception {
-        LocationDao dao = new LocationDao();
+        PropertiesLoader loader = new PropertiesLoader() {};
+        Properties properties = loader.loadProperties("/geonames.properties");
+
+        LocationDao dao = new LocationDao(
+                properties.getProperty("geonames.api.url"),
+                properties.getProperty("geonames.username")
+        );
 
         Response response = dao.getLocation("54166");
 

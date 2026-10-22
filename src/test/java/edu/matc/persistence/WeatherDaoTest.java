@@ -9,7 +9,9 @@ class WeatherDaoTest {
 
     @Test
     void getWeatherSuccess()  throws Exception {
-        WeatherDao dao = new WeatherDao();
+        WeatherDao dao = new WeatherDao(
+                "https://api.open-meteo.com/v1/forecast"
+        );
         Weather weather = dao.getWeather(43.07, -89.40);
 
         assertNotNull(weather);

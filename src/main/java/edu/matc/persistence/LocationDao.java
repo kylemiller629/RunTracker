@@ -26,7 +26,8 @@ public class LocationDao {
     private String username;
 
     public LocationDao(String url, String username) {
-
+        this.url = url;
+        this.username = username;
     }
 
     public Response getLocation(String zipCode) throws Exception {
