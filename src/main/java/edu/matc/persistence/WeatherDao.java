@@ -1,10 +1,12 @@
 package edu.matc.persistence;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.matc.entity.Weather;
 import edu.matc.util.PropertiesLoader;
 import org.apache.logging.log4j.LogManager;
 
+import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
@@ -53,6 +55,12 @@ public class WeatherDao {
 
             return weather;
 
+        } catch (WebApplicationException e) {
+            logger.error("Open-Mateo API returned an HTTP error: " + e.getResponse().getStatus(), e);
+            throw e;
+        } catch (JsonProcessingException e) {
+            logger.error("Unable to parse Open-Meteo JSON response", e);
+            throw e;
         } catch (Exception e) {
             logger.error("Error retrieving weather", e);
             throw new Exception(e);

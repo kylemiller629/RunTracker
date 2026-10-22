@@ -1,9 +1,11 @@
 package edu.matc.persistence;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.matc.entity.Response;
 import edu.matc.util.PropertiesLoader;
 
+import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
@@ -53,8 +55,14 @@ public class LocationDao {
 
             return location;
 
+        } catch (WebApplicationException e) {
+            logger.error("GeoNames API returned an HTTP error: " + e.getResponse().getStatus(), e);
+            throw e;
+        } catch (JsonProcessingException e) {
+            logger.error("Unable to parse GeoNames JSON response", e);
+            throw e;
         } catch (Exception e) {
-            logger.error("Error occured while retrieving location for ZIP: " + zipCode, e);
+            logger.error("Error retrieving location for zipcode: " + zipCode, e);
             throw e;
         } finally {
             client.close();
