@@ -16,7 +16,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * Controller that retrieves a location based from a zip and returns its latitude and longitude
+ * Retrieves location info from GeoNames API using a zip code.
  *
  * @author kmiller
  */

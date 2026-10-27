@@ -43,3 +43,7 @@ build/
 
 # Ignore Hibernate configuration files containing credentials
 **/hibernate.cfg.xml
+
+/src/main/.ebextensions/https-instance-single.config
+/src/main/.ebextensions/https-instance.config
+/src/main/.platform/httpd/conf.d/ssl.conf

@@ -82,28 +82,27 @@
 ### Week 8 - Web Services/API
 #### Focus: Research weather APIs and begin integration
 
-- [ ] Research at least two possible weather APIs
-- [ ] Compare weather APIs and determine which best fits MileMarker
-- [ ] Select weather API
-- [ ] Complete class web service/API exercise
-- [ ] Connect MileMarker to selected weather API
-- [ ] Retrieve weather data for runs
-- [ ] Display weather information for a run
-- [ ] Test weather API functionality
-- [ ] Sign up for team project
-- [ ] Update weekly reflection
+- [X] Research at least two possible weather APIs
+- [X] Compare weather APIs and determine which best fits MileMarker
+- [X] Select weather API
+- [X] Complete class web service/API exercise
+- [X] Connect MileMarker to selected weather API
+- [X] Retrieve weather data for runs
+- [X] Display weather information for a run
+- [X] Test weather API functionality
+- [X] Update weekly reflection
 
 
 ### Week 9 - RESTful Web Services and Checkpoint 3
 #### Focus: Complete weather API functionality and prepare the deployed application
 
-- [ ] Complete weather API functionality 
+- [X] Complete weather API functionality 
 - [ ] Display weather information for runs
 - [ ] Test functionality 
-- [ ] Review authentication
-- [ ] Configure production
-- [ ] Deploy updated MileMarker application to AWS
-- [ ] Test application authentication and database connectivity on AWS
+- [X] Review authentication
+- [X] Configure production
+- [X] Deploy updated MileMarker application to AWS
+- [X] Test application authentication and database connectivity on AWS
 - [ ] Submit Checkpoint 3
 - [ ] Update weekly reflection
 

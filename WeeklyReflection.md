@@ -49,3 +49,44 @@ The puzzles were a little difficult, but I learned more about using log statemen
 
 **Reflection:**
 
+### Week 5
+
+**Time Spent:** 8
+
+**Tasks Completed:**
+* Created database tables 
+* Verify DAO CRUD operations
+
+**Reflection:**
+Created tables and created DAOs 
+
+### Week 6
+
+**Time Spent:** 8
+
+**Tasks Completed:**
+* Created JSPs to display information
+* Created elastic beanstalk environment
+
+**Reflection:**
+Spent a lot of time putting things together and making sure the servlets connected to the JSPs.
+
+### Week 7
+
+**Time Spent:** 16
+
+**Tasks Completed:**
+* Created full CRUD for user goals, implemented local cognito, added running stats and goals to dashboard
+
+**Reflection:**
+Got cognito implemented locally, and worked on full CRUD for User and Goal objects. Started displaying the stats on dashboard.
+
+### Week 8
+
+**Time Spent:** 8
+
+**Tasks Completed:**
+* Implemented APIs for weather display.
+
+**Reflection:**
+Connected two different API's to MileMarker. One to get the current weather from an area based on latitude and longitude, the second to get the latitude and longitude based on a ZIP code. 

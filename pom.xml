@@ -183,6 +183,24 @@
             </dependency>
           </dependencies>
         </plugin>
+        <plugin>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>3.4.0</version>
+          <configuration>
+            <webResources>
+              <resource>
+                <directory>src/main/.platform</directory>
+                <targetPath>.platform</targetPath>
+                <filtering>false</filtering>
+              </resource>
+              <resource>
+                <directory>src/main/.ebextensions</directory>
+                <targetPath>.ebextensions</targetPath>
+                <filtering>false</filtering>
+              </resource>
+            </webResources>
+          </configuration>
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>
