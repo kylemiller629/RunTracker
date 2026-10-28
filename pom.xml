@@ -1,5 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.example</groupId>
   <artifactId>RunTracker</artifactId>
@@ -25,9 +25,7 @@
     <commons-io-version>2.11.0</commons-io-version>
     <jersey-version>2.29.1</jersey-version>
     <jackson-version>2.10.0</jackson-version>
-
   </properties>
-
 
 
   <dependencies>
@@ -103,8 +101,8 @@
     </dependency>
 
     <dependency>
-      <groupId>org.glassfish.jersey.inject</groupId>
-      <artifactId>jersey-hk2</artifactId>
+      <groupId>org.glassfish.jersey.media</groupId>
+      <artifactId>jersey-media-json-jackson</artifactId>
       <version>${jersey-version}</version>
     </dependency>
 
@@ -130,6 +128,18 @@
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-core</artifactId>
       <version>${log4j-version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.glassfish.jersey.containers</groupId>
+      <artifactId>jersey-container-servlet</artifactId>
+      <version>${jersey-version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.glassfish.jersey.inject</groupId>
+      <artifactId>jersey-hk2</artifactId>
+      <version>${jersey-version}</version>
     </dependency>
 
     <!-- AWS Cognito authentication -->
@@ -182,24 +192,6 @@
               <version>${log4j-version}</version>
             </dependency>
           </dependencies>
-        </plugin>
-        <plugin>
-          <artifactId>maven-war-plugin</artifactId>
-          <version>3.4.0</version>
-          <configuration>
-            <webResources>
-              <resource>
-                <directory>src/main/.platform</directory>
-                <targetPath>.platform</targetPath>
-                <filtering>false</filtering>
-              </resource>
-              <resource>
-                <directory>src/main/.ebextensions</directory>
-                <targetPath>.ebextensions</targetPath>
-                <filtering>false</filtering>
-              </resource>
-            </webResources>
-          </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
