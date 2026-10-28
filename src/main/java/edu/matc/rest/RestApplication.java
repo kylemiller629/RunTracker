@@ -5,7 +5,11 @@ import javax.ws.rs.core.Application;
 import java.util.HashSet;
 import java.util.Set;
 
-
+/**
+ * Registers API
+ *
+ * @author kmiller
+ */
 @ApplicationPath("/services")
 public class RestApplication  extends Application {
 
