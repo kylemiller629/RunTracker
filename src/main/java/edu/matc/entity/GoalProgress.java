@@ -46,7 +46,7 @@ public class GoalProgress {
      */
     public double getProgress() {
 
-        return progress;
+        return Math.round(progress * 100) / 100.0;
 
     }
 

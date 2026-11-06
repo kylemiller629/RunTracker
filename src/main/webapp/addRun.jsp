@@ -1,35 +1,69 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <c:set var="pageTitle" value="Add Run" scope="request" />
-
 <html>
-
 
 <c:import url="head.jsp" />
 
-<body>
-    <c:import url="header.jsp" />
-    <h1>Add Run</h1>
+<body data-bs-theme="dark">
 
-    <form action="addRun" method="post">
+<c:import url="header.jsp" />
 
-        <label for="runDate">Date:</label>
-        <input type="date" id="runDate" name="runDate" required>
-        <br>
+    <main class="container my-5">
 
-        <label for="distance">Distance:</label>
-        <input type="number" id="distance" name="distance" step="0.01" required>
-        <br>
+        <div class="mb-4 text-center">
 
-        <label for="duration">Duration:</label>
-        <input type="number" id="duration" name="duration" required>
-        <br>
+            <h1 class="fw-bold">Log a Run</h1>
+            <p class="text-muted">Every mile counts. Record your progress.</p>
 
-        <label for="notes">Notes:</label>
-        <input type="text" id="notes" name="notes">
-        <br>
+        </div>
 
-        <button type="submit">Add Run</button>
-    </form>
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="card shadow-sm">
+                    <div class="card-body p-4">
+
+                        <h3 class="mb-4">Run Details</h3>
+
+                        <form action="addRun" method="post">
+
+                            <div class="mb-3">
+                                <label for="runDate" class="form-label">Run Date</label>
+                                <input type="date" class="form-control" id="runDate" name="runDate" required>
+
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="distance" class="form-label">Distance (miles)</label>
+                                <input type="number" class="form-control" id="distance" name="distance" step="0.01" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="duration" class="form-label">Duration (minutes)</label>
+                                <input type="number" class="form-control" id="duration" name="duration" required>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="notes" class="form-label">Notes</label>
+
+                                <input type="text" class="form-control" id="notes" name="notes" placeholder="How did your run feel?">
+                            </div>
+
+                            <div class="d-flex justify-content-center gap-2">
+
+                                <button type="submit" class="btn btn-primary">Save Run</button>
+                                <a href="viewRuns" class="btn btn-outline-light">Cancel</a>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
 </body>
 </html>
+
