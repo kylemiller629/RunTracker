@@ -6,7 +6,7 @@
 
 <c:import url="head.jsp" />
 
-<body class="bg-light">
+<body class="dark">
 
     <c:import url="header.jsp" />
 

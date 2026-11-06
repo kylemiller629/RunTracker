@@ -1,0 +1,95 @@
+
+/* Theme Colors */
+:root {
+    --mm-background: #0b1220;
+    --mm-card: #172337;
+    --mm-navbar: #101b2e;
+    --mm-primary: #3b82f6;
+    --mm-text: #f8fafc;
+    --mm-muted: #94a3b8;
+    --mm-border: #263347;
+}
+
+/* Main Page */
+body {
+    background-color: var(--mm-background);
+    color: var(--mm-text);
+    font-family: Arial, sans-serif;
+}
+
+/* Navigation */
+.mm-navbar {
+    background-color: var(--mm-navbar);
+    border-bottom: 1px solid var(--mm-border);
+}
+
+.mm-brand {
+    color: var(--mm-text);
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.mm-brand:hover {
+    color: var(--mm-primary);
+}
+
+.mm-nav-link {
+    color: var(--mm-muted);
+    text-decoration: none;
+}
+
+.mm-nav-link:hover {
+    color: var(--mm-text);
+}
+
+/* Dashboard Cards */
+.card {
+    background-color: var(--mm-card);
+    color: var(--mm-text);
+    border: 1px solid var(--mm-border);
+    border-radius: 12px;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5 {
+    color: var(--mm-text);
+}
+
+/* Secondary Text */
+.text-muted {
+    color: var(--mm-muted) !important;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--mm-primary);
+    border-color: var(--mm-primary);
+}
+
+.btn-primary:hover {
+    background-color: #2563eb;
+    border-color: #2563eb;
+}
+
+/* Tables */
+.table {
+    --bs-table-bg: transparent;
+    --bs-table-color: var(--mm-text);
+    --bs-table-border-color: var(--mm-border);
+    --bs-table-striped-bg: #1d2b42;
+    --bs-table-striped-color: var(--mm-text);
+    --bs-table-hover-bg: #243653;
+    --bs-table-hover-color: var(--mm-text);
+}
+
+/* Progress Bars */
+.progress {
+    background-color: #334155;
+    border-radius: 10px;
+}
+
+.progress-bar {
+    background-color: var(--mm-primary);
+}
+
