@@ -228,8 +228,8 @@ public class User {
      * @return total distance in miles
      */
     public double getTotalDistance() {
-
-        return calculateTotalDistance();
+        double totalDistance = calculateTotalDistance();
+        return Math.round(totalDistance * 100.0) / 100.0;
 
     }
 

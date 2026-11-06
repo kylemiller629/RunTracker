@@ -6,102 +6,161 @@
 
 <c:import url="head.jsp" />
 
-<body>
+<body class="bg-light">
 
     <c:import url="header.jsp" />
 
-    <main class="container my-4">
-        <h2>Welcome to MileMarker, ${sessionScope.userName}!</h2>
-        <p>Track your miles! Reach your goals!</p>
+    <main class="container my-5">
+
+        <div class="mb-4">
+            <h2 class="fw-bold">Welcome to MileMarker!</h2>
+            <p class="text-muted">Track your miles. Reach your goals.</p>
+        </div>
 
         <c:if test="${not empty sessionScope.userId}">
-            <h3>Check Weather</h3>
 
-            <form action="${pageContext.request.contextPath}/dashboard" method="get">
-
-                <div class="mb-3">
-
-                    <label for="zipCode" class="form-label">Enter ZIP Code:</label>
-
-                    <input type="text"
-                           class="form-control"
-                           id="zipCode"
-                           name="zipCode"
-                           placeholder="Enter ZIP code" maxlength="5"
-                           pattern="[0-9]{5}"
-                           required>
+            <h3 class="mb-3">Running Summary</h3>
+            <div class="row g-3 mb-5">
+                <div class="col-md-6">
+                    <div class="card shadow-sm border-0 h-100">
+                        <div class="card-body p-4">
+                            <h5 class="text-muted">Total Runs</h5>
+                            <h2 class="fw-bold text-primary">${user.runs.size()}</h2>
+                        </div>
+                    </div>
                 </div>
+                <div class="col-md-6">
+                    <div class="card shadow-sm border-0 h-100">
+                        <div class="card-body p-4">
+                            <h5 class="text-muted">Total Distance</h5>
+                            <h2 class="fw-bold text-primary">${user.totalDistance} miles</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card shadow-sm border-0 mb-5">
+                <div class="card-body p-4">
+                    <h3 class="mb-3">Check Weather</h3>
 
-                <button type="submit" class="btn btn-primary">Get Weather</button>
+                    <form action="${pageContext.request.contextPath}/dashboard" method="get">
 
-            </form>
+                        <div class="mb-3">
+                            <label for="zipCode" class="form-label">Enter ZIP Code:</label>
 
-            <c:if test="${not empty weatherError}">
-                <p>${weatherError}</p>
-            </c:if>
+                            <input type="text"
+                                   class="form-control"
+                                   id="zipCode"
+                                   name="zipCode"
+                                   placeholder="Enter ZIP code"
+                                   maxlength="5"
+                                   pattern="[0-9]{5}"
+                                   required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Get Weather</button>
 
-            <c:if test="${not empty weather}">
+                    </form>
 
-                <h3>Current Weather - ${location.placeName}, ${location.adminCode1}</h3>
-                <p>Temperature: ${weather.current.temperature2m} °F</p>
-                <p>Wind Speed: ${weather.current.windSpeed10m} mph</p>
+                    <c:if test="${not empty weatherError}">
+                        <div class="alert alert-warning mt-3">${weatherError}</div>
+                    </c:if>
 
-            </c:if>
+                    <c:if test="${not empty weather}">
+                        <div class="mt-4">
+                            <h4>Current Weather -${location.placeName}, ${location.adminCode1}</h4>
 
+                            <p class="mb-1">Temperature: ${weather.current.temperature2m} °F</p>
+
+                            <p>Wind Speed: ${weather.current.windSpeed10m} mph</p>
+                        </div>
+                    </c:if>
+
+                </div>
+            </div>
+
+            <div class="card shadow-sm border-0 mb-5">
+                <div class="card-body p-4">
+
+                    <h3 class="mb-3">Recent Runs</h3>
+
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover">
+
+                            <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Distance</th>
+                                <th>Duration</th>
+                                <th>Pace</th>
+                                <th>Notes</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <c:forEach var="run" items="${user.recentRuns}">
+                                <tr>
+                                    <td>${run.runDate}</td>
+                                    <td>${run.distance}</td>
+                                    <td>${run.duration}</td>
+                                    <td>${run.pace}</td>
+                                    <td>${run.notes}</td>
+                                </tr>
+                            </c:forEach>
+                            </tbody>
+
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+            <div class="card shadow-sm border-0 mb-5">
+                <div class="card-body p-4">
+
+                    <h3 class="mb-3">My Running Goals</h3>
+
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover">
+
+                            <thead>
+                            <tr>
+                                <th>Goal Type</th>
+                                <th>Target</th>
+                                <th>Miles Complete</th>
+                                <th>Progress</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <c:forEach var="goalProgress" items="${user.goalProgressList}">
+
+                                <tr>
+                                    <td>${goalProgress.goal.goalType}</td>
+
+                                    <td>${goalProgress.goal.target} miles</td>
+
+                                    <td>${goalProgress.progress} miles</td>
+
+                                    <td>
+                                        <div class="progress mb-2"
+                                             role="progressbar"
+                                             aria-label="Goal progress"
+                                             aria-valuenow="${goalProgress.percentage}"
+                                             aria-valuemin="0"
+                                             aria-valuemax="100">
+                                            <div class="progress-bar" style="width: ${goalProgress.percentage}%"></div>
+                                        </div>
+
+                                            ${goalProgress.percentage}%
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </c:if>
-
-        <c:if test="${not empty sessionScope.userId}">
-            <h3>Running Summary</h3>
-
-            <p>Total Runs: ${user.runs.size()}</p>
-            <p>Total Distance: ${user.totalDistance} miles</p>
-
-            <h3>Recent Runs</h3>
-
-            <table class="table table-striped table-hover">
-                <tr>
-                    <th>Date</th>
-                    <th>Distance</th>
-                    <th>Duration</th>
-                    <th>Pace</th>
-                    <th>Notes</th>
-                </tr>
-
-                <c:forEach var="run" items="${user.recentRuns}">
-                    <tr>
-                        <td>${run.runDate}</td>
-                        <td>${run.distance}</td>
-                        <td>${run.duration}</td>
-                        <td>${run.pace}</td>
-                        <td>${run.notes}</td>
-                    </tr>
-                </c:forEach>
-            </table>
-
-            <h3>My Running Goals</h3>
-                <table>
-                    <tr>
-                        <th>Goal Type</th>
-                        <th>Target</th>
-                        <th>Miles Complete</th>
-                        <th>Progress</th>
-                    </tr>
-
-                    <c:forEach var="goalProgress" items="${user.goalProgressList}">
-                        <tr>
-                            <td>${goalProgress.goal.goalType}</td>
-                            <td>${goalProgress.goal.target} miles</td>
-                            <td>${goalProgress.progress} miles</td>
-                            <td>
-                                <progress value="${goalProgress.percentage}" max="100"></progress>
-                                ${goalProgress.percentage}%
-                            </td>
-                        </tr>
-                    </c:forEach>
-                </table>
-        </c:if>
-
     </main>
 
 </body>
 </html>
+
