@@ -40,5 +40,6 @@
     </form>
 
     <a href="viewGoals">Cancel</a>
+    <c:import url="scripts.jsp" />
 </body>
 </html>

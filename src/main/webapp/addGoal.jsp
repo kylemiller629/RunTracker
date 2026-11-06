@@ -34,6 +34,6 @@
   </form>
 
   <a href="home">Back to Home</a>
-
+  <c:import url="scripts.jsp" />
 </body>
 </html>

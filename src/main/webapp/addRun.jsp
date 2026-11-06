@@ -63,7 +63,7 @@
             </div>
         </div>
     </main>
-
+<c:import url="scripts.jsp" />
 </body>
 </html>
 

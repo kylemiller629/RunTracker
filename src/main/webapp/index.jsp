@@ -32,7 +32,7 @@
                     <div class="card shadow-sm border-0 h-100">
                         <div class="card-body p-4">
 
-                            <h3 class="text-muted">Total Distance</h3>
+                            <h5 class="text-muted">Total Distance</h5>
 
                             <h2 class="fw-bold text-primary">${user.totalDistance} <small class="fs-6 text-muted">miles</small></h2>
 
@@ -217,6 +217,7 @@
 
     </main>
 
+<c:import url="scripts.jsp" />
 </body>
 </html>
 

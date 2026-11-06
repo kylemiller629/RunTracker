@@ -35,5 +35,6 @@
   </form>
 
   <a href="viewRuns">Cancel</a>
+  <c:import url="scripts.jsp" />
 </body>
 </html>
