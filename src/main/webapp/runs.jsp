@@ -35,6 +35,7 @@
                     <td>
                         <a href="runDetails?id=${run.id}">Details</a>
                         <a href="editRun?id=${run.id}">Edit</a>
+
                         <form action="deleteRun" method="post" onsubmit="return confirm('Are you sure you want to delete this run?')">
                             <input type="hidden" name="id" value="${run.id}">
                             <button type="submit">Delete</button>
