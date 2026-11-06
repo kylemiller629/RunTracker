@@ -6,18 +6,17 @@
 
 <c:import url="head.jsp" />
 
-<body class="dark">
+<body data-bs-theme="dark">
 
     <c:import url="header.jsp" />
 
     <main class="container my-5">
-
+    <c:choose>
+        <c:when test="${not empty sessionScope.userId}">
         <div class="mb-4">
             <h2 class="fw-bold">Every Mile Counts.</h2>
             <p class="text-muted">Track your progress. Push your limits.</p>
         </div>
-
-        <c:if test="${not empty sessionScope.userId}">
 
             <h3 class="mb-3">Running Summary</h3>
             <div class="row g-3 mb-5">
@@ -161,9 +160,64 @@
                     </div>
                 </div>
             </div>
-        </c:if>
+        </c:when>
+
+        <c:otherwise>
+
+            <section class="text-center py-5">
+
+                <h1 class="display-3 fw-bold mb-3">Every Mile Counts.</h1>
+
+                <p class="lead text-muted mb-4">Track your runs, set meaningful goals, and see how far you've come.</p>
+
+                <a href="logIn" class="btn btn-primary btn-lg">Get Started</a>
+
+            </section>
+
+            <section class="row g-3 mt-4 text-center">
+
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body p-4">
+
+                            <h3>Track Runs</h3>
+                            <p class="text-muted">Record your distance, duration, and pace.</p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body p-4">
+
+                            <h3>Set Goals</h3>
+                            <p class="text-muted">Create running goals and track your progress.</p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body p-4">
+
+                            <h3>See Progress</h3>
+                            <p class="text-muted">Watch your running achievements grow.</p>
+
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </c:otherwise>
+
+        </c:choose>
+
     </main>
 
 </body>
 </html>
+
 
