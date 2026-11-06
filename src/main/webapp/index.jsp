@@ -13,8 +13,8 @@
     <main class="container my-5">
 
         <div class="mb-4">
-            <h2 class="fw-bold">Welcome to MileMarker!</h2>
-            <p class="text-muted">Track your miles. Reach your goals.</p>
+            <h2 class="fw-bold">Every Mile Counts.</h2>
+            <p class="text-muted">Track your progress. Push your limits.</p>
         </div>
 
         <c:if test="${not empty sessionScope.userId}">
@@ -32,8 +32,11 @@
                 <div class="col-md-6">
                     <div class="card shadow-sm border-0 h-100">
                         <div class="card-body p-4">
-                            <h5 class="text-muted">Total Distance</h5>
-                            <h2 class="fw-bold text-primary">${user.totalDistance} miles</h2>
+
+                            <h3 class="text-muted">Total Distance</h3>
+
+                            <h2 class="fw-bold text-primary">${user.totalDistance} <small class="fs-6 text-muted">miles</small></h2>
+
                         </div>
                     </div>
                 </div>
