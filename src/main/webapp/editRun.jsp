@@ -6,35 +6,61 @@
 
 <c:import url="head.jsp" />
 
-<body>
-  <c:import url="header.jsp" />
-  <h1>Edit Run</h1>
+<body data-bs-theme="dark">
 
-  <form action="editRun" method="post">
+<c:import url="header.jsp" />
 
-    <input type="hidden" name="id" value="${run.id}">
+  <main class="container my-5">
 
-    <label for="runDate">Date:</label>
-    <input type="date" id="runDate" name="runDate" value="${run.runDate}" required>
-    <br>
+    <div class="mb-4 text-center">
+      <h1 class="fw-bold">Edit Run</h1>
+      <p class="text-muted">Update your run details. Keep your progress accurate.</p>
+    </div>
 
-    <label for="distance">Distance:</label>
-    <input type="number" id="distance" name="distance" value="${run.distance}" step="0.01" required>
-    <br>
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="card shadow-sm">
+          <div class="card-body p-4">
 
-    <label for="duration">Duration</label>
-    <input type="number" id="duration" name="duration" value="${run.duration}" required>
-    <br>
+            <h3 class="mb-4">Run Details</h3>
 
-    <label for="notes">Notes</label>
-    <input type="text" id="notes" name="notes" value="${run.notes}">
-    <br>
+            <form action="editRun" method="post">
 
-    <button type="submit">Save Changes</button>
+              <input type="hidden" name="id" value="${run.id}">
 
-  </form>
+              <div class="mb-3">
+                <label for="runDate" class="form-label">Run Date</label>
+                <input type="date" class="form-control" id="runDate" name="runDate" value="${run.runDate}" required>
+              </div>
 
-  <a href="viewRuns">Cancel</a>
-  <c:import url="scripts.jsp" />
+              <div class="mb-3">
+                <label for="distance" class="form-label">Distance (miles)</label>
+                <input type="number" class="form-control" id="distance" name="distance" value="${run.distance}" step="0.01" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="duration" class="form-label">Duration (minutes)</label>
+                <input type="number" class="form-control" id="duration" name="duration" value="${run.duration}" required>
+              </div>
+
+              <div class="mb-4">
+                <label for="notes" class="form-label">Notes</label>
+                <input type="text" class="form-control" id="notes" name="notes" value="${run.notes}" placeholder="How did your run feel?">
+              </div>
+
+              <div class="d-flex justify-content-center gap-2">
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+                <a href="viewRuns" class="btn btn-outline-light">Cancel</a>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+<c:import url="scripts.jsp" />
+
 </body>
 </html>
