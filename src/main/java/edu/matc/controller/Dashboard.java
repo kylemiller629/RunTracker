@@ -64,36 +64,39 @@ public class Dashboard  extends HttpServlet {
 
         WeatherDao weatherDao = new WeatherDao(weatherProperties.getProperty("weather.api.url"));
 
-        try {
-            Response locationResponse = locationDao.getLocation(zipCode);
+        if (zipCode != null && !zipCode.trim().isEmpty()) {
+            try {
+                Response locationResponse = locationDao.getLocation(zipCode);
 
-            if (locationResponse.getPostalCodes() != null && !locationResponse.getPostalCodes().isEmpty()) {
+                if (locationResponse.getPostalCodes() != null && !locationResponse.getPostalCodes().isEmpty()) {
 
-                PostalCodesItem location = locationResponse.getPostalCodes().get(0);
+                    PostalCodesItem location = locationResponse.getPostalCodes().get(0);
 
-                double latitude = location.getLat();
-                double longitude = location.getLng();
+                    double latitude = location.getLat();
+                    double longitude = location.getLng();
 
-                Weather weather = weatherDao.getWeather(latitude, longitude);
+                    Weather weather = weatherDao.getWeather(latitude, longitude);
 
-                req.setAttribute("weather", weather);
-                req.setAttribute("location", location);
+                    req.setAttribute("weather", weather);
+                    req.setAttribute("location", location);
 
 
-            } else {
-                req.setAttribute("weatherError", "No location found for that ZIP code.");
+                } else {
+                    req.setAttribute("weatherError", "No location found for that ZIP code.");
+                }
+            } catch (WebApplicationException e) {
+                logger.error("Weather service HTTP error", e);
+                req.setAttribute("weatherError", "The weather service is currently unavailable. Please try again later.");
+
+            } catch (JsonProcessingException e) {
+                logger.error("Error processing weather API response", e);
+                req.setAttribute("weatherError", "Unable to process weather information right now.");
+
+            } catch (Exception e) {
+                logger.error("Unable to retrieve weather", e);
+                req.setAttribute("weatherError", "Unable to retrieve weather right now. Please try again later.");
             }
-        } catch (WebApplicationException e) {
-            logger.error("Weather service HTTP error", e);
-            req.setAttribute("weatherError", "The weather service is currently unavailable. Please try again later.");
 
-        } catch (JsonProcessingException e) {
-            logger.error("Error processing weather API response", e);
-            req.setAttribute("weatherError", "Unable to process weather information right now.");
-
-        } catch (Exception e) {
-            logger.error("Unable to retrieve weather", e);
-            req.setAttribute("weatherError", "Unable to retrieve weather right now. Please try again later.");
         }
 
         req.getRequestDispatcher("index.jsp").forward(req, resp);
