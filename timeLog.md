@@ -13,5 +13,6 @@
 | Week 6  | Created full CRUD for user runs                                                                         | 8     |  |
 | Week 7  | Created full CRUD for user goals, implimented local cognito, added running stats and goals to dashboard | 16    | Spent three days in a row creating JSP's, debugging, and connecting to cognito. |
 | Week 8  | Implimented GeoNames and Open-Meteo API to display weather.                                             | 8     |  |
-| Week 9  |                                                                                                         |       |  |
-| Week 10 |                                                                                                         |       |  |
+| Week 9  | Created RESTful endpoints for runs, deployed MileMarker to AWS, and tested authentication.              | 8     |  |
+| Week 10 | Worked on application improvements and styling.                                                         | 6     |  |
+| Week 11 | Reviewed project requirements, worked on code quality, and prepared portfolio                           | 8     |  |

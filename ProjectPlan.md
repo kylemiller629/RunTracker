@@ -110,16 +110,14 @@
 ### Week 10 - Dashboard and User Interface
 #### Focus: Improve application appearance and usability
 
-- [ ] Add CSS styling (probably Bootstrap styling)
+- [X] Add CSS styling (probably Bootstrap styling)
 - [ ] Improve dashboard layout and running summary
-- [ ] Display active goals on the dashboard
+- [] Display active goals on the dashboard
 - [ ] Improve Runs page
 - [ ] Improve Goals page
-- [ ] Style forms, tables, navigation, and buttons
+- [X] Style forms, tables, navigation, and buttons
 - [ ] Add form validation where needed
-- [ ] Test application workflow from sign-in through run and goal management
-- [ ] Fix bugs discovered during testing
-- [ ] Update weekly reflection
+- [X] Update weekly reflection
 
 
 ### Week 11 - Testing and MVP Completion
@@ -129,15 +127,15 @@
 - [ ] Review JUnit test coverage
 - [ ] Add missing unit tests
 - [ ] Verify Log4J2 logging
-- [ ] Test CRUD functionality
-- [ ] Test one-to-many relationships
-- [ ] Test weather API functionality
-- [ ] Test authentication
-- [ ] Test deployed AWS application
+- [X] Test CRUD functionality
+- [X] Test one-to-many relationships
+- [X] Test weather API functionality
+- [X] Test authentication
+- [X] Test deployed AWS application
 - [ ] Review application for usability issues
 - [ ] Fix remaining bugs
-- [ ] Update project documentation
-- [ ] Update weekly reflection
+- [X] Update project documentation
+- [X] Update weekly reflection
 
 
 ### Week 12 - Team Project Presentations
