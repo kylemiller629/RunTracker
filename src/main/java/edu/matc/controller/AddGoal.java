@@ -37,10 +37,32 @@ public class AddGoal  extends HttpServlet {
 
         Goal goal = new Goal();
 
-        goal.setGoalType(goalType);
-        goal.setTarget(Double.parseDouble(target));
-        goal.setStartDate(LocalDate.parse(startDate));
-        goal.setEndDate(LocalDate.parse(endDate));
+        try {
+
+            goal.setGoalType(goalType);
+            goal.setTarget(Double.parseDouble(target));
+            goal.setStartDate(LocalDate.parse(startDate));
+            goal.setEndDate(LocalDate.parse(endDate));
+
+            if (goalType == null || goalType.trim().isEmpty()) {
+                response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Please select a goal type.");
+                return;
+            }
+
+            if (goal.getTarget() <= 0 || !Double.isFinite(goal.getTarget())) {
+                response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Goal target must be greater than zero.");
+                return;
+            }
+
+            if (goal.getEndDate().isBefore(goal.getStartDate())) {
+                response.sendError(HttpServletResponse.SC_BAD_REQUEST, "End date cannot be before start date.");
+                return;
+            }
+
+        } catch (RuntimeException exception) {
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Please enter a valid target and dates.");
+            return;
+        }
 
         GenericDao<User> userDao = new GenericDao<>(User.class);
         User user = userDao.getById(userId);
