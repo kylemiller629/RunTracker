@@ -84,10 +84,25 @@ public class EditRun extends HttpServlet {
             return;
         }
 
-        run.setRunDate(LocalDate.parse(runDate));
-        run.setDistance(Double.parseDouble(distance));
-        run.setDuration(Integer.parseInt(duration));
-        run.setNotes(notes);
+        try {
+
+            run.setRunDate(LocalDate.parse(runDate));
+            run.setDistance(Double.parseDouble(distance));
+            run.setDuration(Integer.parseInt(duration));
+            run.setNotes(notes);
+
+            if (run.getDistance() <= 0 || !Double.isFinite(run.getDistance()) || run.getDuration() <= 0) {
+
+                response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Distance and duration must be greater than zero.");
+                return;
+            }
+
+        } catch (RuntimeException exception) {
+
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Please enter a valid date, distance, and duration.");
+            return;
+        }
+
 
         runDao.update(run);
 
