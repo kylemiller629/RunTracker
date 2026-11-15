@@ -82,10 +82,38 @@ public class EditGoal  extends HttpServlet {
         String startDate = request.getParameter("startDate");
         String endDate = request.getParameter("endDate");
 
-        goal.setGoalType(goalType);
-        goal.setTarget(Double.parseDouble(target));
-        goal.setStartDate(LocalDate.parse(startDate));
-        goal.setEndDate(LocalDate.parse(endDate));
+        try {
+
+            double targetValue = Double.parseDouble(target);
+            LocalDate startDateValue = LocalDate.parse(startDate);
+            LocalDate endDateValue = LocalDate.parse(endDate);
+
+            if (goalType == null || goalType.trim().isEmpty()) {
+
+                response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Please select a goal type.");
+                return;
+            }
+
+            if (targetValue <= 0 || !Double.isFinite(targetValue)) {
+                response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Goal target must be greater than zero.");
+                return;
+            }
+
+            if (endDateValue.isBefore(startDateValue)) {
+                response.sendError(HttpServletResponse.SC_BAD_REQUEST, "End date cannot be before start date.");
+                return;
+            }
+
+            goal.setGoalType(goalType);
+            goal.setTarget(targetValue);
+            goal.setStartDate(startDateValue);
+            goal.setEndDate(endDateValue);
+
+        } catch (RuntimeException exception) {
+
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Please enter a valid target and dates.");
+            return;
+        }
 
         goalDao.update(goal);
 
