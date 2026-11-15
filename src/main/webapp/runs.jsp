@@ -42,6 +42,8 @@
 
         </div>
 
+
+
         <div class="card shadow-sm mb-4">
             <div class="card-body p-4">
 
@@ -51,6 +53,24 @@
                     <a href="addRun.jsp" class="btn btn-primary">Add Run</a>
 
                 </div>
+
+                <form action="viewRuns" method="get" class="row g-3 mb-4">
+
+                    <div class="col-md-4">
+                        <label for="searchDate" class="form-label">Search by Date</label>
+
+                        <input type="date"
+                               class="form-control"
+                               id="searchDate"
+                               name="searchDate"
+                               value="${searchDate}">
+                    </div>
+
+                    <div class="col-md-4 d-flex align-items-end gap-2">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                        <a href="viewRuns" class="btn btn-outline-secondary">Clear</a>
+                    </div>
+                </form>
 
                 <div class="table-responsive">
                     <table class="table table-striped table-hover align-middle">
@@ -67,7 +87,7 @@
                         </thead>
 
                         <tbody>
-                        <c:forEach var="run" items="${user.runs}">
+                        <c:forEach var="run" items="${filteredRuns}">
                             <tr>
                                 <td>${run.runDate}</td>
                                 <td>${run.distance} mi</td>
@@ -84,7 +104,6 @@
                                         <form action="deleteRun" method="post" class="m-0" onsubmit="return confirm('Are you sure you want to delete this run?')">
 
                                             <input type="hidden" name="id" value="${run.id}">
-
                                             <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
 
                                         </form>
@@ -93,6 +112,16 @@
                                 </td>
                             </tr>
                         </c:forEach>
+                        <c:if test="${empty filteredRuns}">
+                            <tr>
+                                <td colspan="6" class="text-center text-muted py-4">
+                                    <c:choose>
+                                        <c:when test="${not empty searchDate}">No runs found for this date.</c:when>
+                                        <c:otherwise>No runs recorded yet. Add your first run!</c:otherwise>
+                                    </c:choose>
+                                </td>
+                            </tr>
+                        </c:if>
                         </tbody>
 
                     </table>

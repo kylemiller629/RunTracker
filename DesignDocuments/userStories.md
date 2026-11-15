@@ -68,9 +68,9 @@ As a registered user, I want to view a summary of my running activity so that I 
 
 ### Weather
 
-#### View Weather for a Run *
+View Current Weather
 
-As a registered user, I want to view weather information for a run so that I can see the conditions in which I ran.
+As a registered user, I want to view current weather conditions on my dashboard so that I can plan my runs based on the weather.
 
 
 ---
