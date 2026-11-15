@@ -185,15 +185,15 @@ public class Run {
     /**
      * Calculates the average pace per mile
      *
-     * @return pace
+     * @return pace in minutes and seconds per mile
      */
     public String getPace() {
 
-        if (distance <= 0) {
+        if (distance <= 0 || duration <= 0) {
             return "N/A";
         }
 
-        int secondsPerMile = (int) Math.round(duration / distance);
+        int secondsPerMile = (int) Math.round((duration * 60.0) / distance);
 
         int minutes = secondsPerMile / 60;
         int seconds = secondsPerMile % 60;

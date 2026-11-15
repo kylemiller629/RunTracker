@@ -23,8 +23,10 @@
                 <div class="col-md-6">
                     <div class="card shadow-sm border-0 h-100">
                         <div class="card-body p-4">
+
                             <h5 class="text-muted">Total Runs</h5>
                             <h2 class="fw-bold text-primary">${user.runs.size()}</h2>
+
                         </div>
                     </div>
                 </div>
