@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import java.util.Properties;
 
 /**
- * Loads Cognito properties when the application starts.
+ * Loads Cognito, weather, and GeoNames properties when the application starts.
  */
 @WebServlet(
         name = "applicationStartup",
